@@ -1,0 +1,23 @@
+/*
+  Content-Security-Policy: default-src 'self';
+    script-src 'self' https://cdn.tailwindcss.com 'unsafe-inline';
+    style-src  'self' https://fonts.googleapis.com 'unsafe-inline';
+    img-src    'self' data: https:;
+    font-src   'self' https://fonts.gstatic.com data:;
+    connect-src 'self';
+    object-src 'none';
+    base-uri 'self';
+    frame-ancestors 'none';
+    form-action 'self' mailto:;
+    upgrade-insecure-requests;
+
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: no-referrer-when-downgrade
+  Permissions-Policy: accelerometer=(), ambient-light-sensor=(), autoplay=(), camera=(), display-capture=(), encrypted-media=(), fullscreen=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), usb=(), xr-spatial-tracking=()
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+  X-Permitted-Cross-Domain-Policies: none
+  Cache-Control: public, max-age=300
+
