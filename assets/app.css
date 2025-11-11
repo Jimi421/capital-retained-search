@@ -16,17 +16,28 @@ body{
 @media(min-width:980px){.grid-2{grid-template-columns:1.1fr .9fr}.grid-4{grid-template-columns:repeat(4,1fr)}}
 .gap-md{gap:16px}.gap-xl{gap:40px}
 
+/* Accessibility: skip link */
+.skip{position:absolute;left:-9999px;top:auto}
+.skip:focus{left:16px;top:12px;background:#fff;padding:8px 12px;border:1px solid var(--border);border-radius:8px;z-index:50}
+
 .topbar{position:sticky;top:0;z-index:10;background:#fff;backdrop-filter:saturate(180%) blur(8px); border-bottom:1px solid var(--border)}
 .topbar .nav a{margin-left:20px; color:var(--ink-2); text-decoration:none}
 .topbar .nav a:hover{color:var(--brand)}
 .brand .brand-name{font-weight:600; margin-left:10px}
 .logo{border-radius:999px; background:transparent}
 
-.btn{display:inline-block; padding:12px 18px; border-radius:999px; border:1px solid var(--border); text-decoration:none; font-weight:600}
+.btn{display:inline-block; padding:12px 18px; border-radius:999px; border:1px solid var(--border); text-decoration:none; font-weight:600; cursor:pointer}
 .btn-primary{background:var(--brand); color:#fff; border-color:var(--brand); box-shadow:var(--shadow)}
 .btn-primary:hover{filter:brightness(0.95)}
 .btn-outline{background:#fff}
 .btn-outline:hover{border-color:var(--brand); color:var(--brand)}
+
+@media (prefers-reduced-motion:no-preference){
+  .card{transition:transform .2s ease, box-shadow .2s ease}
+  .card:hover{transform:translateY(-2px); box-shadow:0 10px 30px rgba(2,6,23,.08)}
+  .btn{transition:filter .15s ease}
+  .btn:hover{filter:brightness(.97)}
+}
 
 .link{color:var(--brand); text-decoration:none} .link:hover{text-decoration:underline}
 
@@ -60,11 +71,11 @@ body{
 .timeline span{font-weight:600}
 
 .chip{border:1px solid var(--border); border-radius:14px; padding:16px}
-.avatar{display:flex;align-items:center;justify-content:center; background:var(--brand); color:#fff; border-radius:24px; width:100%; aspect-ratio:1/1; font-weight:800; font-size:44px}
 
-.form input,.form textarea{
-  width:100%; padding:12px 12px; border:1px solid var(--border); border-radius:12px; font:inherit
-}
+/* Headshot */
+.headshot{width:100%; height:auto; border-radius:24px; object-fit:cover}
+
+.form input,.form textarea{width:100%; padding:12px 12px; border:1px solid var(--border); border-radius:12px; font:inherit}
 .form label{display:block; font-weight:600; color:var(--ink); font-size:14px; margin-top:12px}
 .form button{margin-top:10px}
 

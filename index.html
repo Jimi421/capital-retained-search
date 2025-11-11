@@ -4,23 +4,23 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Capital Retained Search — Strategic Hires. Lasting Impact.</title>
-  <meta name="description" content="Boutique retained executive search connecting growth companies with proven leaders. Time-boxed process, enterprise-grade rigor." />
-  <meta property="og:title" content="Capital Retained Search" />
-  <meta property="og:description" content="Strategic Hires. Lasting Impact." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="/assets/og-1200x630.png" />
+  <meta name="description" content="Boutique retained executive search connecting growth companies with proven leaders. Time-boxed process, discreet and rigorous." />
   <meta name="theme-color" content="#409034" />
 
-  <!-- Icons -->
+  <!-- PWA / Icons -->
+  <link rel="manifest" href="/manifest.webmanifest">
   <link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
   <link rel="icon" href="/assets/favicon-48.png" sizes="48x48">
   <link rel="apple-touch-icon" href="/assets/apple-icon-180.png">
+  <meta property="og:image" content="/assets/og-1200x630.png" />
 
-  <!-- Styles/Script (self-hosted, no inline) -->
+  <!-- Self-hosted CSS -->
   <link rel="preload" href="/assets/app.css" as="style">
   <link rel="stylesheet" href="/assets/app.css">
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
+
   <header class="topbar">
     <div class="container row between center">
       <a class="brand row center" href="/">
@@ -32,20 +32,20 @@
         <a href="#process">Process</a>
         <a href="#roles">Functions</a>
         <a href="#about">About</a>
-        <a class="btn btn-primary" href="#contact">Start a Search</a>
+        <a class="btn btn-primary" href="#contact">Schedule Intro (15 min)</a>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <!-- Hero -->
     <section class="hero">
       <div class="container grid-2 gap-xl">
         <div>
           <h1 class="display">Strategic Hires. <br> <span class="accent">Lasting Impact.</span></h1>
-          <p class="lead">Boutique retained search for growth companies. We place proven leaders across revenue, operations, and corporate functions—with a time-boxed process and enterprise-grade rigor.</p>
+          <p class="lead">Boutique retained search for growth companies. Proven leaders across revenue, operations, product, and corporate—time-boxed, discreet, and rigorous.</p>
           <div class="row wrap gap-md">
-            <a class="btn btn-primary" href="#contact">Schedule an Intro Call</a>
+            <a class="btn btn-primary" href="#contact">Schedule Intro (15 min)</a>
             <a class="btn btn-outline" href="#process">Our 6-Week Search Playbook</a>
           </div>
           <div class="metrics">
@@ -99,16 +99,23 @@
       </div>
     </section>
 
-    <!-- Roles -->
-    <section id="roles" class="section">
+    <!-- Mini case strip (proof) -->
+    <section class="section">
       <div class="container">
-        <h2 class="h2">Functions we recruit</h2>
-        <p class="muted">Core strengths include revenue, operations, product, and corporate services.</p>
-        <div class="grid-4 gap-md">
-          <div class="chip">Revenue Leadership <span class="muted">CRO, VP Sales, RevOps, Marketing</span></div>
-          <div class="chip">Operations & GTM <span class="muted">COO, Strategy, Customer Success</span></div>
-          <div class="chip">Product & Tech <span class="muted">Product, Data, Eng leadership</span></div>
-          <div class="chip">Finance & People <span class="muted">CFO/Controller, HR, Talent</span></div>
+        <h2 class="h2">Recent work (confidential)</h2>
+        <div class="cards-3">
+          <div class="card">
+            <h3 class="h3">VP Customer Success — SaaS</h3>
+            <p class="muted">Closed in 5 weeks; 3-finalist slate; ARR retention +4 pts in 2Q.</p>
+          </div>
+          <div class="card">
+            <h3 class="h3">Head of RevOps — PE Portfolio</h3>
+            <p class="muted">Scorecards & interview plan; offer aligned to market bands.</p>
+          </div>
+          <div class="card">
+            <h3 class="h3">Controller — Healthcare</h3>
+            <p class="muted">Diverse pipeline; confidential backfill; smooth handover.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -128,10 +135,13 @@
     <!-- About -->
     <section id="about" class="section">
       <div class="container grid-2 gap-xl">
-        <div class="avatar">CR</div>
+        <div>
+          <img class="headshot card" src="/assets/kathryn-headshot.jpg" alt="Kathryn Hoover, Founder of Capital Retained Search" width="800" height="800" loading="lazy">
+        </div>
         <div>
           <h2 class="h2">About Capital Retained Search</h2>
-          <p class="muted">Founded by Kathryn Hoover in Raleigh, North Carolina, Capital Retained Search is a boutique firm focused on retained executive and high-leverage IC roles. We combine thoughtful outreach with structured evaluations to deliver diverse, values-aligned leaders who create measurable impact.</p>
+          <p class="muted">Founded by <strong>Kathryn Hoover</strong> in Raleigh, North Carolina, Capital Retained Search is a boutique firm focused on retained executive and high-leverage IC roles. We combine thoughtful outreach with structured evaluations to deliver diverse, values-aligned leaders who create measurable impact.</p>
+          <p class="muted">Before launching Capital Retained Search, Kathryn held leadership roles in executive recruiting and has partnered with growth-stage companies and PE portfolio teams across revenue, operations, product, finance, and people functions. She serves her community through board service and is a graduate of UNC–Chapel Hill.</p>
           <p class="muted small">We operate with strict confidentiality and conflict checks on every engagement.</p>
         </div>
       </div>
@@ -173,6 +183,7 @@
     </div>
   </footer>
 
+  <!-- Self-hosted JS (tiny) -->
   <script src="/assets/app.js" defer></script>
 </body>
 </html>

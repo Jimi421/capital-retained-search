@@ -1,0 +1,13 @@
+{
+  "name": "Capital Retained Search",
+  "short_name": "CR Search",
+  "theme_color": "#409034",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/",
+  "icons": [
+    { "src": "/assets/apple-icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/apple-icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
+
