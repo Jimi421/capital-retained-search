@@ -214,19 +214,33 @@
         <div class="card">
           <h2 class="h2">Start a confidential search</h2>
           <p class="muted">Share a few details and we’ll respond within one business day.</p>
-          <form class="form" name="contact" method="POST" action="mailto:kathryn@capitalretainedsearch.com">
+          <form class="form" name="contact" method="POST" action="https://api.capitalretainedsearch.com/contact" novalidate>
             <div class="grid-2 gap-md">
-              <label> Name <input name="name" required placeholder="Your name"></label>
-              <label> Company <input name="company" placeholder="Organization"></label>
+              <label> Name
+                <input name="name" required placeholder="Your name" aria-describedby="error-name">
+                <span class="field-error" id="error-name" role="status" aria-live="polite"></span>
+              </label>
+              <label> Company
+                <input name="company" placeholder="Organization" aria-describedby="error-company">
+                <span class="field-error" id="error-company" role="status" aria-live="polite"></span>
+              </label>
             </div>
             <div class="grid-2 gap-md">
-              <label> Email <input type="email" name="email" required placeholder="you@company.com"></label>
-              <label> Phone <input name="phone" placeholder="Optional"></label>
+              <label> Email
+                <input type="email" name="email" required placeholder="you@company.com" aria-describedby="error-email">
+                <span class="field-error" id="error-email" role="status" aria-live="polite"></span>
+              </label>
+              <label> Phone
+                <input name="phone" placeholder="Optional" aria-describedby="error-phone">
+                <span class="field-error" id="error-phone" role="status" aria-live="polite"></span>
+              </label>
             </div>
             <label> What role are you hiring?
-              <textarea name="message" rows="4" placeholder="Briefly describe the role, timeline, and goals"></textarea>
+              <textarea name="message" rows="4" placeholder="Briefly describe the role, timeline, and goals" aria-describedby="error-message"></textarea>
+              <span class="field-error" id="error-message" role="status" aria-live="polite"></span>
             </label>
             <button class="btn btn-primary" type="submit">Send</button>
+            <div class="form-status" data-form-status role="status" aria-live="polite"></div>
           </form>
           <p class="muted small">Prefer direct outreach? <a class="link" href="mailto:kathryn@capitalretainedsearch.com">kathryn@capitalretainedsearch.com</a> · <a class="link" href="tel:+19198182093">919-818-2093</a></p>
         </div>
