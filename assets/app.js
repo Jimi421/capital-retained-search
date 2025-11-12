@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const y = document.getElementById('y');
   if (y) y.textContent = new Date().getFullYear();
 
+  initNavToggle();
   initContactForm();
 });
 
@@ -56,6 +57,52 @@ function countUp(node){
   onScroll();
   window.addEventListener('scroll', onScroll, {passive:true});
 })();
+
+function initNavToggle(){
+  const nav = document.getElementById('primary-nav');
+  const toggle = document.querySelector('.nav-toggle');
+  if (!nav || !toggle) return;
+
+  const closeNav = () => {
+    if (!nav.classList.contains('is-open')) return;
+    nav.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+  };
+
+  const openNav = () => {
+    if (nav.classList.contains('is-open')) return;
+    nav.classList.add('is-open');
+    toggle.setAttribute('aria-expanded', 'true');
+  };
+
+  toggle.addEventListener('click', () => {
+    if (nav.classList.contains('is-open')) closeNav();
+    else openNav();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape' || !nav.classList.contains('is-open')) return;
+    event.preventDefault();
+    closeNav();
+    toggle.focus();
+  });
+
+  document.addEventListener('focusin', (event) => {
+    if (!nav.classList.contains('is-open')) return;
+    const target = event.target;
+    if (!(target instanceof Node)) return;
+    if (nav.contains(target) || target === toggle) return;
+    closeNav();
+  });
+
+  const mq = window.matchMedia('(min-width: 861px)');
+  const handleMqChange = (event) => {
+    if (event.matches) closeNav();
+  };
+  handleMqChange(mq);
+  if (typeof mq.addEventListener === 'function') mq.addEventListener('change', handleMqChange);
+  else if (typeof mq.addListener === 'function') mq.addListener(handleMqChange);
+}
 
 function initContactForm(){
   const form = document.querySelector('form[name="contact"]');
