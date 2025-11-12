@@ -53,12 +53,9 @@ body{
   color:#fff; overflow:hidden;
   text-shadow:0 2px 18px rgba(0,0,0,.35);
 
-  /* Use WebP if present, fallback to JPEG */
+  /* Use the bundled JPEG hero image */
   background: #000 center/cover no-repeat;
-  background-image: image-set(
-    url("/assets/IMG_5153.webp") type("image/webp") 1x,
-    url("/assets/IMG_5153.jpeg") type("image/jpeg") 1x
-  );
+  background-image: url("/assets/IMG_5153.jpeg");
   background-position: 50% 35%; /* desktop crop */
 }
 .hero::before{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.58) 100%)}
@@ -72,13 +69,8 @@ body{
 
 @media (max-width: 720px){
   .hero{ padding:96px 0 72px;
-    /* swap to mobile crop if provided; otherwise desktop stays */
-    background-image: image-set(
-      url("/assets/IMG_5153-mobile.webp") type("image/webp") 1x,
-      url("/assets/IMG_5153-mobile.jpeg") type("image/jpeg") 1x,
-      url("/assets/IMG_5153.webp") type("image/webp") 1x,
-      url("/assets/IMG_5153.jpeg") type("image/jpeg") 1x
-    );
+    /* Mobile uses the same JPEG asset */
+    background-image: url("/assets/IMG_5153.jpeg");
     background-position: 50% 22%;
   }
   .display{font-size:clamp(34px, 8vw, 44px)}
