@@ -58,6 +58,10 @@ body{
   background-image: url("/assets/IMG_5153.jpeg");
   background-position: 50% 35%; /* desktop crop */
 }
+.hero .card{
+  color:var(--ink);
+  text-shadow:none;
+}
 .hero::before{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.58) 100%)}
 .hero > .container{position:relative; z-index:1}
 .display{font-family:Fraunces, Georgia, "Times New Roman", serif; font-weight:800; font-size:var(--f-hero); line-height:1.06; letter-spacing:-.5px}
