@@ -21,6 +21,7 @@ body{
 .skip:focus{left:16px;top:12px;background:#fff;padding:8px 12px;border:1px solid var(--border);border-radius:8px;z-index:50}
 
 .topbar{position:sticky;top:0;z-index:10;background:#fff;backdrop-filter:saturate(180%) blur(8px); border-bottom:1px solid var(--border)}
+.topbar.scrolled{box-shadow:0 8px 24px rgba(2,6,23,.06)}
 .topbar .nav a{margin-left:20px; color:var(--ink-2); text-decoration:none}
 .topbar .nav a:hover{color:var(--brand)}
 .brand .brand-name{font-weight:600; margin-left:10px}
@@ -32,16 +33,16 @@ body{
 .btn-outline{background:#fff}
 .btn-outline:hover{border-color:var(--brand); color:var(--brand)}
 
-@media (prefers-reduced-motion:no-preference){
-  .card{transition:transform .2s ease, box-shadow .2s ease}
-  .card:hover{transform:translateY(-2px); box-shadow:0 10px 30px rgba(2,6,23,.08)}
-  .btn{transition:filter .15s ease}
-  .btn:hover{filter:brightness(.97)}
-}
-
 .link{color:var(--brand); text-decoration:none} .link:hover{text-decoration:underline}
 
-.hero{background:radial-gradient(80% 80% at 50% 0%, #e8f5ef 0%, #ffffff 55%, #ffffff 100%); padding:72px 0}
+.hero{background:radial-gradient(80% 80% at 50% 0%, #e8f5ef 0%, #ffffff 55%, #ffffff 100%); padding:72px 0; position:relative; overflow:hidden}
+@media (prefers-reduced-motion:no-preference){
+  .hero::after{
+    content:""; position:absolute; inset:-20%;
+    background: radial-gradient(40% 35% at 60% 10%, rgba(64,144,52,.08), transparent 60%);
+    animation: drift 18s ease-in-out infinite alternate; pointer-events:none;
+  }
+}
 .display{font-weight:800; font-size:44px; line-height:1.1}
 .accent{color:var(--brand)}
 .lead{margin-top:14px; color:var(--ink-2); font-size:18px}
@@ -75,9 +76,35 @@ body{
 /* Headshot */
 .headshot{width:100%; height:auto; border-radius:24px; object-fit:cover}
 
-.form input,.form textarea{width:100%; padding:12px 12px; border:1px solid var(--border); border-radius:12px; font:inherit}
-.form label{display:block; font-weight:600; color:var(--ink); font-size:14px; margin-top:12px}
-.form button{margin-top:10px}
+/* Sectors / Values / FAQ layouts */
+.sectors{display:grid; gap:18px}
+.values{display:grid; gap:18px}
+.faq{display:grid; gap:12px}
+@media(min-width:980px){
+  .sectors{grid-template-columns:repeat(3,1fr)}
+  .values{grid-template-columns:repeat(5,1fr)}
+}
+details summary{cursor:pointer; outline:none}
+details[open]{border-color:#d3e6d6}
 
-.footer{border-top:1px solid var(--border); padding:22px 0; background:#fff}
+/* ===== Motion system (accessible) ===== */
+@media (prefers-reduced-motion:no-preference){
+  .reveal{opacity:0; transform:translateY(14px)}
+  .reveal.inview{opacity:1; transform:none; animation:fadeUp .6s ease forwards}
+  .reveal.left{transform:translateX(-18px)}
+  .reveal.left.inview{animation:slideInLeft .6s ease forwards}
+  .reveal.right{transform:translateX(18px)}
+  .reveal.right.inview{animation:slideInRight .6s ease forwards}
+
+  /* Hover motion */
+  .card{transition:transform .2s ease, box-shadow .2s ease}
+  .card:hover{transform:translateY(-2px); box-shadow:0 10px 30px rgba(2,6,23,.08)}
+  .btn{transition:filter .15s ease}
+  .btn:hover{filter:brightness(.97)}
+}
+
+@keyframes fadeUp{from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:none}}
+@keyframes slideInLeft{from{opacity:0; transform:translateX(-18px)} to{opacity:1; transform:none}}
+@keyframes slideInRight{from{opacity:0; transform:translateX(18px)} to{opacity:1; transform:none}}
+@keyframes drift{0%{transform:translateY(-2%) translateX(0)} 100%{transform:translateY(2%) translateX(1.5%)}}
 

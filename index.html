@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Capital Retained Search — Strategic Hires. Lasting Impact.</title>
-  <meta name="description" content="Boutique retained executive search connecting growth companies with proven leaders. Time-boxed process, discreet and rigorous." />
+  <meta name="description" content="Boutique retained executive search connecting growth companies with proven leaders. Time-boxed, discreet, and rigorous." />
   <meta name="theme-color" content="#409034" />
 
   <!-- PWA / Icons -->
@@ -30,6 +30,7 @@
       <nav class="nav">
         <a href="#services">Solutions</a>
         <a href="#process">Process</a>
+        <a href="#sectors">Sectors</a>
         <a href="#roles">Functions</a>
         <a href="#about">About</a>
         <a class="btn btn-primary" href="#contact">Schedule Intro (15 min)</a>
@@ -41,21 +42,21 @@
     <!-- Hero -->
     <section class="hero">
       <div class="container grid-2 gap-xl">
-        <div>
+        <div class="reveal">
           <h1 class="display">Strategic Hires. <br> <span class="accent">Lasting Impact.</span></h1>
           <p class="lead">Boutique retained search for growth companies. Proven leaders across revenue, operations, product, and corporate—time-boxed, discreet, and rigorous.</p>
           <div class="row wrap gap-md">
             <a class="btn btn-primary" href="#contact">Schedule Intro (15 min)</a>
             <a class="btn btn-outline" href="#process">Our 6-Week Search Playbook</a>
           </div>
-          <div class="metrics">
-            <div><div class="metric-k">5–7</div><div class="metric-l">scored finalists in week 2</div></div>
-            <div><div class="metric-k">95%+</div><div class="metric-l">offer acceptance</div></div>
-            <div><div class="metric-k">6 weeks</div><div class="metric-l">typical close</div></div>
-            <div><div class="metric-k">Nationwide</div><div class="metric-l">confidential coverage</div></div>
+          <div class="metrics stagger" style="--stagger: 90ms">
+            <div class="reveal"><div class="metric-k" data-count="7"></div><div class="metric-l">finalists in week 2</div></div>
+            <div class="reveal"><div class="metric-k" data-count="95" data-suffix="%+"></div><div class="metric-l">offer acceptance</div></div>
+            <div class="reveal"><div class="metric-k" data-count="6"></div><div class="metric-l">weeks typical close</div></div>
+            <div class="reveal"><div class="metric-k">Nationwide</div><div class="metric-l">confidential coverage</div></div>
           </div>
         </div>
-        <aside>
+        <aside class="reveal right">
           <div class="card">
             <h2 class="h2">A boutique retained partner</h2>
             <p class="muted">Work directly with the founder from brief to accepted offer. Low search load ensures VIP attention.</p>
@@ -71,7 +72,7 @@
     </section>
 
     <!-- Solutions -->
-    <section id="services" class="section">
+    <section id="services" class="section reveal">
       <div class="container">
         <h2 class="h2">Solutions</h2>
         <p class="muted">Retained search for leadership and high-leverage individual contributors.</p>
@@ -84,7 +85,7 @@
     </section>
 
     <!-- Process -->
-    <section id="process" class="section alt">
+    <section id="process" class="section alt reveal left">
       <div class="container">
         <h2 class="h2">A clear, time-boxed search process</h2>
         <p class="muted">Qualified slate in week one. Typical close in ~6 weeks.</p>
@@ -99,29 +100,64 @@
       </div>
     </section>
 
+    <!-- Why Us / Values -->
+    <section id="values" class="section alt reveal">
+      <div class="container">
+        <h2 class="h2">Why Capital Retained Search</h2>
+        <div class="values">
+          <div class="card"><h3 class="h3">Rigor</h3><p class="muted">Role scorecards, structured panels, and consistent references—no guesswork.</p></div>
+          <div class="card"><h3 class="h3">Speed</h3><p class="muted">Time-boxed sprint with weekly reporting and 5–7 finalists by week two.</p></div>
+          <div class="card"><h3 class="h3">Discretion</h3><p class="muted">Confidential outreach and conflict checks on every engagement.</p></div>
+          <div class="card"><h3 class="h3">Diversity</h3><p class="muted">Inclusive slates and intentional sourcing to widen the pipeline.</p></div>
+          <div class="card"><h3 class="h3">Partnership</h3><p class="muted">Founder-led delivery from intake to accepted offer and onboarding touchpoints.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Client Sectors -->
+    <section id="sectors" class="section reveal">
+      <div class="container">
+        <h2 class="h2">Client sectors</h2>
+        <p class="muted">We support growth companies and investment-backed operators across these markets.</p>
+        <div class="sectors">
+          <div class="sector card"><h3 class="h3">Software & SaaS</h3><p class="muted">B2B platforms, data/AI, vertical SaaS.</p></div>
+          <div class="sector card"><h3 class="h3">Private Equity Portfolio</h3><p class="muted">Add-ons, roll-ups, professionalization plays.</p></div>
+          <div class="sector card"><h3 class="h3">Healthcare</h3><p class="muted">Provider services, HCIT, payor/plan adjacencies.</p></div>
+          <div class="sector card"><h3 class="h3">Industrial & Services</h3><p class="muted">Manufacturing, distribution, field services.</p></div>
+          <div class="sector card"><h3 class="h3">Financial & Corporate</h3><p class="muted">Accounting/finance, HR, legal, operations.</p></div>
+          <div class="sector card"><h3 class="h3">Mission-Driven</h3><p class="muted">Nonprofit and education leadership.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Roles -->
+    <section id="roles" class="section reveal">
+      <div class="container">
+        <h2 class="h2">Functions we recruit</h2>
+        <p class="muted">Core strengths include revenue, operations, product, and corporate services.</p>
+        <div class="grid-4 gap-md">
+          <div class="chip">Revenue Leadership <span class="muted">CRO, VP Sales, RevOps, Marketing</span></div>
+          <div class="chip">Operations & GTM <span class="muted">COO, Strategy, Customer Success</span></div>
+          <div class="chip">Product & Tech <span class="muted">Product, Data, Eng leadership</span></div>
+          <div class="chip">Finance & People <span class="muted">CFO/Controller, HR, Talent</span></div>
+        </div>
+      </div>
+    </section>
+
     <!-- Mini case strip (proof) -->
-    <section class="section">
+    <section class="section reveal">
       <div class="container">
         <h2 class="h2">Recent work (confidential)</h2>
         <div class="cards-3">
-          <div class="card">
-            <h3 class="h3">VP Customer Success — SaaS</h3>
-            <p class="muted">Closed in 5 weeks; 3-finalist slate; ARR retention +4 pts in 2Q.</p>
-          </div>
-          <div class="card">
-            <h3 class="h3">Head of RevOps — PE Portfolio</h3>
-            <p class="muted">Scorecards & interview plan; offer aligned to market bands.</p>
-          </div>
-          <div class="card">
-            <h3 class="h3">Controller — Healthcare</h3>
-            <p class="muted">Diverse pipeline; confidential backfill; smooth handover.</p>
-          </div>
+          <div class="card"><h3 class="h3">VP Customer Success — SaaS</h3><p class="muted">Closed in 5 weeks; 3-finalist slate; ARR retention +4 pts in 2Q.</p></div>
+          <div class="card"><h3 class="h3">Head of RevOps — PE Portfolio</h3><p class="muted">Scorecards & interview plan; offer aligned to market bands.</p></div>
+          <div class="card"><h3 class="h3">Controller — Healthcare</h3><p class="muted">Diverse pipeline; confidential backfill; smooth handover.</p></div>
         </div>
       </div>
     </section>
 
     <!-- Testimonials -->
-    <section class="section alt">
+    <section class="section alt reveal left">
       <div class="container">
         <h2 class="h2">What clients say</h2>
         <div class="cards-3">
@@ -133,7 +169,7 @@
     </section>
 
     <!-- About -->
-    <section id="about" class="section">
+    <section id="about" class="section reveal right">
       <div class="container grid-2 gap-xl">
         <div>
           <img class="headshot card" src="/assets/kathryn-headshot.jpg" alt="Kathryn Hoover, Founder of Capital Retained Search" width="800" height="800" loading="lazy">
@@ -147,8 +183,33 @@
       </div>
     </section>
 
+    <!-- FAQ -->
+    <section id="faq" class="section reveal">
+      <div class="container">
+        <h2 class="h2">FAQ</h2>
+        <div class="faq">
+          <details class="card">
+            <summary><strong>How does retained search differ from contingent?</strong></summary>
+            <p class="muted">Retained engagements reserve dedicated time and deliver a managed process, market intel, and guaranteed delivery—ideal for confidential or high-impact roles.</p>
+          </details>
+          <details class="card">
+            <summary><strong>What functions do you cover?</strong></summary>
+            <p class="muted">Revenue leadership, operations/GTM, product & technology, finance & people, and other corporate roles.</p>
+          </details>
+          <details class="card">
+            <summary><strong>How quickly do you produce a slate?</strong></summary>
+            <p class="muted">We present a scored shortlist in week one or two, with typical close around six weeks.</p>
+          </details>
+          <details class="card">
+            <summary><strong>Do you run confidential backfills?</strong></summary>
+            <p class="muted">Yes. We handle discreet outreach and reference checks with tight controls.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <!-- Contact -->
-    <section id="contact" class="section">
+    <section id="contact" class="section reveal">
       <div class="container">
         <div class="card">
           <h2 class="h2">Start a confidential search</h2>
@@ -183,7 +244,7 @@
     </div>
   </footer>
 
-  <!-- Self-hosted JS (tiny) -->
+  <!-- Self-hosted JS -->
   <script src="/assets/app.js" defer></script>
 </body>
 </html>
