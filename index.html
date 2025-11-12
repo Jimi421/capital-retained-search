@@ -6,6 +6,7 @@
   <title>Capital Retained Search — Strategic Hires. Lasting Impact.</title>
   <meta name="description" content="Boutique retained executive search connecting growth companies with proven leaders. Time-boxed, discreet, and rigorous." />
   <meta name="theme-color" content="#409034" />
+  <link rel="canonical" href="https://capitalretainedsearch.com/">
 
   <!-- PWA / Icons -->
   <link rel="manifest" href="/manifest.webmanifest">
@@ -13,6 +14,13 @@
   <link rel="icon" href="/assets/favicon-48.png" sizes="48x48">
   <link rel="apple-touch-icon" href="/assets/apple-icon-180.png">
   <meta property="og:image" content="/assets/og-1200x630.png" />
+
+  <!-- Preload hero images for faster paint -->
+  <link rel="preload" href="/assets/IMG_5153.jpeg" as="image">
+  <!-- Optional mobile/webp variants (safe to keep even if not present) -->
+  <link rel="preload" href="/assets/IMG_5153.webp" as="image" type="image/webp" importance="low">
+  <link rel="preload" href="/assets/IMG_5153-mobile.jpeg" as="image" media="(max-width: 640px)">
+  <link rel="preload" href="/assets/IMG_5153-mobile.webp" as="image" type="image/webp" media="(max-width: 640px)" importance="low">
 
   <!-- Self-hosted CSS -->
   <link rel="preload" href="/assets/app.css" as="style">
@@ -27,24 +35,19 @@
         <img class="logo" src="/assets/logo-512.png" alt="Capital Retained Search logo" height="40" width="40">
         <span class="brand-name">Capital Retained Search</span>
       </a>
-      <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
-        Menu
-      </button>
-      <nav class="nav" id="primary-nav">
-        <div class="nav-menu">
-          <a href="#services">Solutions</a>
-          <a href="#process">Process</a>
-          <a href="#sectors">Sectors</a>
-          <a href="#roles">Functions</a>
-          <a href="#about">About</a>
-          <a class="btn btn-primary" href="#contact">Schedule Intro (15 min)</a>
-        </div>
+      <nav class="nav" aria-label="Primary">
+        <a href="#services">Solutions</a>
+        <a href="#process">Process</a>
+        <a href="#sectors">Sectors</a>
+        <a href="#roles">Functions</a>
+        <a href="#about">About</a>
+        <a class="btn btn-primary" href="#contact">Intro Call</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <!-- Hero -->
+    <!-- Hero with mobile-friendly beach background -->
     <section class="hero">
       <div class="container grid-2 gap-xl">
         <div class="reveal">
@@ -52,9 +55,9 @@
           <p class="lead">Boutique retained search for growth companies. Proven leaders across revenue, operations, product, and corporate—time-boxed, discreet, and rigorous.</p>
           <div class="row wrap gap-md">
             <a class="btn btn-primary" href="#contact">Schedule Intro (15 min)</a>
-            <a class="btn btn-outline" href="#process">Our 6-Week Search Playbook</a>
+            <a class="btn btn-outline" href="#process">Our 6-Week Playbook</a>
           </div>
-          <div class="metrics stagger" style="--stagger: 90ms">
+          <div class="metrics reveal" data-stagger="90">
             <div class="reveal"><div class="metric-k" data-count="7"></div><div class="metric-l">finalists in week 2</div></div>
             <div class="reveal"><div class="metric-k" data-count="95" data-suffix="%+"></div><div class="metric-l">offer acceptance</div></div>
             <div class="reveal"><div class="metric-k" data-count="6"></div><div class="metric-l">weeks typical close</div></div>
@@ -135,21 +138,61 @@
       </div>
     </section>
 
-    <!-- Roles -->
+    <!-- Roles (hover reveal) -->
     <section id="roles" class="section reveal">
       <div class="container">
         <h2 class="h2">Functions we recruit</h2>
         <p class="muted">Core strengths include revenue, operations, product, and corporate services.</p>
-        <div class="grid-4 gap-md">
-          <div class="chip">Revenue Leadership <span class="muted">CRO, VP Sales, RevOps, Marketing</span></div>
-          <div class="chip">Operations & GTM <span class="muted">COO, Strategy, Customer Success</span></div>
-          <div class="chip">Product & Tech <span class="muted">Product, Data, Eng leadership</span></div>
-          <div class="chip">Finance & People <span class="muted">CFO/Controller, HR, Talent</span></div>
+
+        <div class="role-grid" data-stagger="80">
+          <article class="role-card" tabindex="0" aria-label="Executive and Director roles">
+            <h3 class="role-head">Executive & Director</h3>
+            <div class="role-body">
+              <ul>
+                <li>VP/Director, GM, Head of Function</li>
+                <li>Growth, GTM, and Operations leadership</li>
+                <li>Scorecard-driven evaluation & references</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role-card" tabindex="0" aria-label="High-leverage individual contributors">
+            <h3 class="role-head">High-Leverage IC</h3>
+            <div class="role-body">
+              <ul>
+                <li>RevOps, Product, Finance, CS, Strategy</li>
+                <li>Time-boxed sourcing sprints</li>
+                <li>Diverse slates; calibrated interview plans</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role-card" tabindex="0" aria-label="Product and technology leadership">
+            <h3 class="role-head">Product & Technology</h3>
+            <div class="role-body">
+              <ul>
+                <li>Head of Product, Data, Engineering</li>
+                <li>Outcome-oriented product leadership</li>
+                <li>Technical depth + business alignment</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role-card" tabindex="0" aria-label="Finance and people leadership">
+            <h3 class="role-head">Finance & People</h3>
+            <div class="role-body">
+              <ul>
+                <li>CFO/Controller, HR/Talent, Legal</li>
+                <li>Confidential backfills & successions</li>
+                <li>Market-aligned compensation bands</li>
+              </ul>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Mini case strip (proof) -->
+    <!-- Mini case strip -->
     <section class="section reveal">
       <div class="container">
         <h2 class="h2">Recent work (confidential)</h2>
@@ -181,8 +224,17 @@
         </div>
         <div>
           <h2 class="h2">About Capital Retained Search</h2>
-          <p class="muted">Founded by <strong>Kathryn Hoover</strong> in Raleigh, North Carolina, Capital Retained Search is a boutique firm focused on retained executive and high-leverage IC roles. We combine thoughtful outreach with structured evaluations to deliver diverse, values-aligned leaders who create measurable impact.</p>
-          <p class="muted">Before launching Capital Retained Search, Kathryn held leadership roles in executive recruiting and has partnered with growth-stage companies and PE portfolio teams across revenue, operations, product, finance, and people functions. She serves her community through board service and is a graduate of UNC–Chapel Hill.</p>
+          <p class="muted">
+            <strong>Kathryn Hoover</strong> is a seasoned professional recruiter with experience across corporate and contract search.
+            She brings a track record of measurable results across multiple industries and is known for pairing
+            skill, personality, and culture to deliver long-term success. Kathryn enjoys partnering with both
+            hiring leaders and candidates to “find the best in people and put it to work.”
+          </p>
+          <p class="muted">
+            Capital Retained Search was founded to give growth companies a boutique, founder-led partner for
+            critical hires. The firm combines discreet outreach with structured, scorecard-driven evaluations
+            to produce diverse, values-aligned slates—typically closing searches in about six weeks.
+          </p>
           <p class="muted small">We operate with strict confidentiality and conflict checks on every engagement.</p>
         </div>
       </div>
@@ -213,41 +265,44 @@
       </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="section reveal">
-      <div class="container">
-        <div class="card">
-          <h2 class="h2">Start a confidential search</h2>
-          <p class="muted">Share a few details and we’ll respond within one business day.</p>
-          <form class="form" name="contact" method="POST" action="https://api.capitalretainedsearch.com/contact" novalidate>
+    <!-- Contact (dark split) -->
+    <section id="contact" class="contact-split">
+      <div class="container contact-grid">
+        <div class="contact-left reveal">
+          <h2 class="display contact-title">Let’s start the conversation</h2>
+          <p class="muted contact-copy">
+            When the role is critical, timing and fit matter. Share a few details about your
+            goals and we’ll follow up quickly with next steps and a recommended approach.
+          </p>
+          <div class="contact-firm">
+            <strong>Capital Retained Search</strong><br>
+            Raleigh, North Carolina · National coverage<br>
+            <a class="link" href="mailto:kathryn@capitalretainedsearch.com">kathryn@capitalretainedsearch.com</a><br>
+            <a class="link" href="tel:+19198182093">919-818-2093</a>
+          </div>
+        </div>
+
+        <div class="contact-right card reveal right">
+          <h3 class="h2" aria-hidden="true">Contact Us</h3>
+          <form class="form form-lined" name="contact" method="POST" action="mailto:kathryn@capitalretainedsearch.com">
             <div class="grid-2 gap-md">
-              <label> Name
-                <input name="name" required placeholder="Your name" aria-describedby="error-name">
-                <span class="field-error" id="error-name" role="status" aria-live="polite"></span>
-              </label>
-              <label> Company
-                <input name="company" placeholder="Organization" aria-describedby="error-company">
-                <span class="field-error" id="error-company" role="status" aria-live="polite"></span>
-              </label>
+              <label> First name * <input name="first" autocomplete="given-name" required placeholder="Enter your first name"></label>
+              <label> Last name * <input name="last" autocomplete="family-name" required placeholder="Enter your last name"></label>
             </div>
             <div class="grid-2 gap-md">
-              <label> Email
-                <input type="email" name="email" required placeholder="you@company.com" aria-describedby="error-email">
-                <span class="field-error" id="error-email" role="status" aria-live="polite"></span>
-              </label>
-              <label> Phone
-                <input name="phone" placeholder="Optional" aria-describedby="error-phone">
-                <span class="field-error" id="error-phone" role="status" aria-live="polite"></span>
-              </label>
+              <label> Company <input name="company" autocomplete="organization" placeholder="Enter your Company Name"></label>
+              <label> Job Title <input name="title" autocomplete="organization-title" placeholder="Enter your Job Title"></label>
             </div>
-            <label> What role are you hiring?
-              <textarea name="message" rows="4" placeholder="Briefly describe the role, timeline, and goals" aria-describedby="error-message"></textarea>
-              <span class="field-error" id="error-message" role="status" aria-live="polite"></span>
+            <div class="grid-2 gap-md">
+              <label> Email * <input type="email" name="email" autocomplete="email" required placeholder="Enter your email"></label>
+              <label> Phone <input name="phone" autocomplete="tel" placeholder="Enter your phone number"></label>
+            </div>
+            <label> Write a message
+              <textarea name="message" rows="4" placeholder="Tell us about the role, timing, and goals"></textarea>
             </label>
-            <button class="btn btn-primary" type="submit">Send</button>
-            <div class="form-status" data-form-status role="status" aria-live="polite"></div>
+            <div class="contact-divider" aria-hidden="true"></div>
+            <button class="btn btn-primary" type="submit">Submit</button>
           </form>
-          <p class="muted small">Prefer direct outreach? <a class="link" href="mailto:kathryn@capitalretainedsearch.com">kathryn@capitalretainedsearch.com</a> · <a class="link" href="tel:+19198182093">919-818-2093</a></p>
         </div>
       </div>
     </section>
@@ -263,7 +318,6 @@
     </div>
   </footer>
 
-  <!-- Self-hosted JS -->
   <script src="/assets/app.js" defer></script>
 </body>
 </html>
