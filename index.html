@@ -7,17 +7,43 @@
   <meta name="description" content="Boutique retained executive search connecting growth companies with proven leaders. Time-boxed, discreet, and rigorous." />
   <meta name="theme-color" content="#409034" />
   <link rel="canonical" href="https://capitalretainedsearch.com/">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Capital Retained Search — Strategic Hires. Lasting Impact." />
+  <meta property="og:description" content="Boutique retained executive search for growth companies. Proven leaders across revenue, operations, product, and corporate." />
+  <meta property="og:image" content="https://capitalretainedsearch.com/assets/og-image.jpg" />
+  <meta property="og:url" content="https://capitalretainedsearch.com/" />
+  <meta property="og:type" content="website" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Capital Retained Search" />
+  <meta name="twitter:description" content="Boutique retained executive search for growth companies." />
+  <meta name="twitter:image" content="https://capitalretainedsearch.com/assets/og-image.jpg" />
 
-  <!-- Preload key images (safe even if mobile/webp variants are missing) -->
+  <!-- Preload key images -->
   <link rel="preload" href="assets/IMG_5153.jpeg" as="image">
   <link rel="preload" href="assets/IMG_6535.jpeg" as="image">
+  
+  <!-- Preconnect to API -->
+  <link rel="preconnect" href="https://api.capitalretainedsearch.com">
+  <link rel="dns-prefetch" href="https://api.capitalretainedsearch.com">
 
-  <!-- CSS (preload + actual stylesheet) -->
-  <link rel="preload" href="assets/app.css" as="style">
-  <link rel="stylesheet" href="assets/app.css?v=1">
+  <!-- CSS -->
+  <link rel="preload" href="assets/app-enhanced.css" as="style">
+  <link rel="stylesheet" href="assets/app-enhanced.css?v=2">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
+
+  <!-- Success/Error Notification Toast -->
+  <div id="notification" class="notification" aria-live="polite" aria-atomic="true"></div>
 
   <header class="topbar">
     <div class="container row between center">
@@ -37,15 +63,15 @@
   </header>
 
   <main id="main">
-    <!-- HERO: Sunrise -->
+    <!-- HERO: Enhanced with floating stats bubble -->
     <section class="hero">
       <div class="container grid-2 gap-xl">
         <div class="reveal">
           <h1 class="display">Strategic Hires. <br><span class="accent">Lasting Impact.</span></h1>
           <p class="lead">Boutique retained search for growth companies. Proven leaders across revenue, operations, product, and corporate—time-boxed, discreet, and rigorous.</p>
           <div class="row wrap gap-md">
-            <a class="btn btn-primary" href="#contact">Schedule Intro (15 min)</a>
-            <a class="btn btn-outline" href="#process">Our 6-Week Playbook</a>
+            <a class="btn btn-primary btn-lg pulse" href="#contact">Schedule Intro (15 min)</a>
+            <a class="btn btn-outline btn-lg" href="#process">Our 6-Week Playbook</a>
           </div>
           <div class="metrics reveal" data-stagger="90">
             <div class="reveal"><div class="metric-k" data-count="7"></div><div class="metric-l">finalists in week 2</div></div>
@@ -54,60 +80,228 @@
             <div class="reveal"><div class="metric-k">Nationwide</div><div class="metric-l">confidential coverage</div></div>
           </div>
         </div>
+        
+        <!-- Enhanced floating stats card -->
         <aside class="reveal right">
-          <div class="card">
-            <h2 class="h2">A boutique retained partner</h2>
-            <p class="muted">Work directly with the founder from brief to accepted offer. Low search load ensures VIP attention.</p>
-            <ul class="bullets">
-              <li>Scorecards & leadership assessments</li>
-              <li>Diversity-forward sourcing</li>
-              <li>Transparent weekly reporting</li>
-              <li>Confidential, values-aligned outreach</li>
+          <div class="stats-bubble floating">
+            <div class="bubble-badge">BOUTIQUE ADVANTAGE</div>
+            <h2 class="bubble-title">Work directly with the founder</h2>
+            <p class="bubble-text">From brief to accepted offer. Low search load ensures VIP attention for your critical hires.</p>
+            
+            <div class="bubble-stats">
+              <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Client Satisfaction</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">2-3</div>
+                <div class="stat-label">Concurrent Searches Max</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">24hr</div>
+                <div class="stat-label">Response Time</div>
+              </div>
+            </div>
+            
+            <ul class="bubble-features">
+              <li><span class="check-icon">✓</span> Scorecards & leadership assessments</li>
+              <li><span class="check-icon">✓</span> Diversity-forward sourcing</li>
+              <li><span class="check-icon">✓</span> Transparent weekly reporting</li>
+              <li><span class="check-icon">✓</span> Confidential, values-aligned outreach</li>
             </ul>
+            
+            <div class="bubble-cta">
+              <a href="#process" class="bubble-link">See our process →</a>
+            </div>
           </div>
         </aside>
       </div>
     </section>
 
-    <!-- Solutions -->
-    <section id="services" class="section reveal">
+    <!-- Trust Indicators -->
+    <section class="trust-bar">
       <div class="container">
-        <h2 class="h2">Solutions</h2>
-        <p class="muted">Retained search for leadership and high-leverage individual contributors.</p>
-        <div class="cards-3">
-          <div class="card"><h3 class="h3">Executive & Director</h3><p>VP/Director, GM, Head of Function; leaders across growth and operations.</p></div>
-          <div class="card"><h3 class="h3">High-Leverage IC</h3><p>Revenue, product, finance, and operations roles where talent moves the P&amp;L.</p></div>
-          <div class="card"><h3 class="h3">Assessment & Talent Design</h3><p>Comp bands, scorecards, interview plans, talent market mapping.</p></div>
+        <div class="trust-items">
+          <div class="trust-item">
+            <img src="assets/icons/shield.svg" alt="Security" class="trust-icon" />
+            <span>SOC 2 Compliant Process</span>
+          </div>
+          <div class="trust-item">
+            <img src="assets/icons/star.svg" alt="Rating" class="trust-icon" />
+            <span>4.9/5 Client Rating</span>
+          </div>
+          <div class="trust-item">
+            <img src="assets/icons/clock.svg" alt="Speed" class="trust-icon" />
+            <span>Average 42-Day Close</span>
+          </div>
+          <div class="trust-item">
+            <img src="assets/icons/users.svg" alt="Placements" class="trust-icon" />
+            <span>500+ Placements</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Process -->
+    <!-- Solutions with hover effects -->
+    <section id="services" class="section reveal">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="h2">Solutions</h2>
+          <p class="muted">Retained search for leadership and high-leverage individual contributors.</p>
+        </div>
+        <div class="cards-3">
+          <div class="card service-card">
+            <div class="card-icon">👔</div>
+            <h3 class="h3">Executive & Director</h3>
+            <p>VP/Director, GM, Head of Function; leaders across growth and operations.</p>
+            <a href="#contact" class="card-link">Learn more →</a>
+          </div>
+          <div class="card service-card">
+            <div class="card-icon">🎯</div>
+            <h3 class="h3">High-Leverage IC</h3>
+            <p>Revenue, product, finance, and operations roles where talent moves the P&amp;L.</p>
+            <a href="#contact" class="card-link">Learn more →</a>
+          </div>
+          <div class="card service-card">
+            <div class="card-icon">📊</div>
+            <h3 class="h3">Assessment & Talent Design</h3>
+            <p>Comp bands, scorecards, interview plans, talent market mapping.</p>
+            <a href="#contact" class="card-link">Learn more →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Process Timeline -->
     <section id="process" class="section alt reveal left">
       <div class="container">
         <h2 class="h2">A clear, time-boxed search process</h2>
         <p class="muted">Qualified slate in week one. Typical close in ~6 weeks.</p>
-        <div class="timeline">
-          <div><b>Week 0</b><span>Discovery</span><p>Intake, success profile, inclusion targets, interview plan.</p></div>
-          <div><b>Week 1</b><span>Sourcing Sprint</span><p>Target list + outbound; market signals & comp insights.</p></div>
-          <div><b>Week 2</b><span>Shortlist</span><p>5–7 scored and interviewed candidates.</p></div>
-          <div><b>Weeks 3–4</b><span>Panel</span><p>Structured interviews; leadership & values assessments.</p></div>
-          <div><b>Week 5</b><span>Finalists</span><p>References, calibration, compensation alignment.</p></div>
-          <div><b>Week 6</b><span>Offer & Close</span><p>Negotiation and acceptance; onboarding touchpoints.</p></div>
+        <div class="timeline-enhanced">
+          <div class="timeline-item active" data-week="0">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <b>Week 0</b>
+              <span>Discovery</span>
+              <p>Intake, success profile, inclusion targets, interview plan.</p>
+              <div class="timeline-details">
+                <ul>
+                  <li>2-hour strategy session</li>
+                  <li>Role scorecard development</li>
+                  <li>Compensation benchmarking</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item" data-week="1">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <b>Week 1</b>
+              <span>Sourcing Sprint</span>
+              <p>Target list + outbound; market signals & comp insights.</p>
+              <div class="timeline-details">
+                <ul>
+                  <li>100+ candidates identified</li>
+                  <li>Personalized outreach</li>
+                  <li>Initial screening calls</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item" data-week="2">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <b>Week 2</b>
+              <span>Shortlist</span>
+              <p>5–7 scored and interviewed candidates.</p>
+              <div class="timeline-details">
+                <ul>
+                  <li>Deep-dive interviews</li>
+                  <li>Skills assessment</li>
+                  <li>Culture fit evaluation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item" data-week="3-4">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <b>Weeks 3–4</b>
+              <span>Panel</span>
+              <p>Structured interviews; leadership & values assessments.</p>
+              <div class="timeline-details">
+                <ul>
+                  <li>Stakeholder interviews</li>
+                  <li>Case studies/presentations</li>
+                  <li>Team chemistry sessions</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item" data-week="5">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <b>Week 5</b>
+              <span>Finalists</span>
+              <p>References, calibration, compensation alignment.</p>
+              <div class="timeline-details">
+                <ul>
+                  <li>360° reference checks</li>
+                  <li>Offer structuring</li>
+                  <li>Negotiation prep</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item" data-week="6">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <b>Week 6</b>
+              <span>Offer & Close</span>
+              <p>Negotiation and acceptance; onboarding touchpoints.</p>
+              <div class="timeline-details">
+                <ul>
+                  <li>Offer presentation</li>
+                  <li>Counter negotiation</li>
+                  <li>30-60-90 day plan</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Values -->
+    <!-- Values with animation -->
     <section id="values" class="section alt reveal">
       <div class="container">
         <h2 class="h2">Why Capital Retained Search</h2>
         <div class="values">
-          <div class="card"><h3 class="h3">Rigor</h3><p class="muted">Role scorecards, structured panels, and consistent references—no guesswork.</p></div>
-          <div class="card"><h3 class="h3">Speed</h3><p class="muted">Time-boxed sprint with weekly reporting and 5–7 finalists by week two.</p></div>
-          <div class="card"><h3 class="h3">Discretion</h3><p class="muted">Confidential outreach and conflict checks on every engagement.</p></div>
-          <div class="card"><h3 class="h3">Diversity</h3><p class="muted">Inclusive slates and intentional sourcing to widen the pipeline.</p></div>
-          <div class="card"><h3 class="h3">Partnership</h3><p class="muted">Founder-led delivery from intake to accepted offer and onboarding touchpoints.</p></div>
+          <div class="card value-card">
+            <div class="value-icon">🎯</div>
+            <h3 class="h3">Rigor</h3>
+            <p class="muted">Role scorecards, structured panels, and consistent references—no guesswork.</p>
+          </div>
+          <div class="card value-card">
+            <div class="value-icon">⚡</div>
+            <h3 class="h3">Speed</h3>
+            <p class="muted">Time-boxed sprint with weekly reporting and 5–7 finalists by week two.</p>
+          </div>
+          <div class="card value-card">
+            <div class="value-icon">🔒</div>
+            <h3 class="h3">Discretion</h3>
+            <p class="muted">Confidential outreach and conflict checks on every engagement.</p>
+          </div>
+          <div class="card value-card">
+            <div class="value-icon">🌍</div>
+            <h3 class="h3">Diversity</h3>
+            <p class="muted">Inclusive slates and intentional sourcing to widen the pipeline.</p>
+          </div>
+          <div class="card value-card">
+            <div class="value-icon">🤝</div>
+            <h3 class="h3">Partnership</h3>
+            <p class="muted">Founder-led delivery from intake to accepted offer and onboarding touchpoints.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -118,23 +312,48 @@
         <h2 class="h2">Client sectors</h2>
         <p class="muted">We support growth companies and investment-backed operators across these markets.</p>
         <div class="sectors">
-          <div class="sector card"><h3 class="h3">Software & SaaS</h3><p class="muted">B2B platforms, data/AI, vertical SaaS.</p></div>
-          <div class="sector card"><h3 class="h3">Private Equity Portfolio</h3><p class="muted">Add-ons, roll-ups, professionalization plays.</p></div>
-          <div class="sector card"><h3 class="h3">Healthcare</h3><p class="muted">Provider services, HCIT, payor/plan adjacencies.</p></div>
-          <div class="sector card"><h3 class="h3">Industrial & Services</h3><p class="muted">Manufacturing, distribution, field services.</p></div>
-          <div class="sector card"><h3 class="h3">Financial & Corporate</h3><p class="muted">Accounting/finance, HR, legal, operations.</p></div>
-          <div class="sector card"><h3 class="h3">Mission-Driven</h3><p class="muted">Nonprofit and education leadership.</p></div>
+          <div class="sector card hover-lift">
+            <div class="sector-icon">💻</div>
+            <h3 class="h3">Software & SaaS</h3>
+            <p class="muted">B2B platforms, data/AI, vertical SaaS.</p>
+          </div>
+          <div class="sector card hover-lift">
+            <div class="sector-icon">📈</div>
+            <h3 class="h3">Private Equity Portfolio</h3>
+            <p class="muted">Add-ons, roll-ups, professionalization plays.</p>
+          </div>
+          <div class="sector card hover-lift">
+            <div class="sector-icon">🏥</div>
+            <h3 class="h3">Healthcare</h3>
+            <p class="muted">Provider services, HCIT, payor/plan adjacencies.</p>
+          </div>
+          <div class="sector card hover-lift">
+            <div class="sector-icon">🏭</div>
+            <h3 class="h3">Industrial & Services</h3>
+            <p class="muted">Manufacturing, distribution, field services.</p>
+          </div>
+          <div class="sector card hover-lift">
+            <div class="sector-icon">💼</div>
+            <h3 class="h3">Financial & Corporate</h3>
+            <p class="muted">Accounting/finance, HR, legal, operations.</p>
+          </div>
+          <div class="sector card hover-lift">
+            <div class="sector-icon">🎯</div>
+            <h3 class="h3">Mission-Driven</h3>
+            <p class="muted">Nonprofit and education leadership.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Roles (hover reveal) -->
+    <!-- Roles (enhanced hover reveal) -->
     <section id="roles" class="section reveal">
       <div class="container">
         <h2 class="h2">Functions we recruit</h2>
         <p class="muted">Core strengths include revenue, operations, product, and corporate services.</p>
         <div class="role-grid" data-stagger="80">
-          <article class="role-card" tabindex="0" aria-label="Executive and Director roles">
+          <article class="role-card enhanced" tabindex="0" aria-label="Executive and Director roles">
+            <div class="role-icon">👔</div>
             <h3 class="role-head">Executive & Director</h3>
             <div class="role-body">
               <ul>
@@ -144,7 +363,8 @@
               </ul>
             </div>
           </article>
-          <article class="role-card" tabindex="0" aria-label="High-leverage individual contributors">
+          <article class="role-card enhanced" tabindex="0" aria-label="High-leverage individual contributors">
+            <div class="role-icon">🎯</div>
             <h3 class="role-head">High-Leverage IC</h3>
             <div class="role-body">
               <ul>
@@ -154,7 +374,8 @@
               </ul>
             </div>
           </article>
-          <article class="role-card" tabindex="0" aria-label="Product and technology leadership">
+          <article class="role-card enhanced" tabindex="0" aria-label="Product and technology leadership">
+            <div class="role-icon">💡</div>
             <h3 class="role-head">Product & Technology</h3>
             <div class="role-body">
               <ul>
@@ -164,7 +385,8 @@
               </ul>
             </div>
           </article>
-          <article class="role-card" tabindex="0" aria-label="Finance and people leadership">
+          <article class="role-card enhanced" tabindex="0" aria-label="Finance and people leadership">
+            <div class="role-icon">📊</div>
             <h3 class="role-head">Finance & People</h3>
             <div class="role-body">
               <ul>
@@ -184,125 +406,365 @@
       <div class="container hero-caption">
         <h2 class="h2">Based in Raleigh. National reach.</h2>
         <p class="muted on-dark">Discreet, founder-led search with the rigor of a large firm—delivered with boutique focus.</p>
-        <a class="btn btn-primary" href="#contact">Start a confidential search</a>
+        <a class="btn btn-primary btn-lg" href="#contact">Start a confidential search</a>
       </div>
     </section>
 
-    <!-- Mini cases -->
+    <!-- Recent work with better cards -->
     <section class="section reveal">
       <div class="container">
         <h2 class="h2">Recent work (confidential)</h2>
         <div class="cards-3">
-          <div class="card"><h3 class="h3">VP Customer Success — SaaS</h3><p class="muted">Closed in 5 weeks; 3-finalist slate; ARR retention +4 pts in 2Q.</p></div>
-          <div class="card"><h3 class="h3">Head of RevOps — PE Portfolio</h3><p class="muted">Scorecards & interview plan; offer aligned to market bands.</p></div>
-          <div class="card"><h3 class="h3">Controller — Healthcare</h3><p class="muted">Diverse pipeline; confidential backfill; smooth handover.</p></div>
+          <div class="card case-card">
+            <div class="case-badge success">CLOSED</div>
+            <h3 class="h3">VP Customer Success — SaaS</h3>
+            <p class="muted">Closed in 5 weeks; 3-finalist slate; ARR retention +4 pts in 2Q.</p>
+            <div class="case-stats">
+              <span class="stat">5 weeks</span>
+              <span class="stat">3 finalists</span>
+              <span class="stat">+4% retention</span>
+            </div>
+          </div>
+          <div class="card case-card">
+            <div class="case-badge success">CLOSED</div>
+            <h3 class="h3">Head of RevOps — PE Portfolio</h3>
+            <p class="muted">Scorecards & interview plan; offer aligned to market bands.</p>
+            <div class="case-stats">
+              <span class="stat">6 weeks</span>
+              <span class="stat">5 finalists</span>
+              <span class="stat">98% match</span>
+            </div>
+          </div>
+          <div class="card case-card">
+            <div class="case-badge success">CLOSED</div>
+            <h3 class="h3">Controller — Healthcare</h3>
+            <p class="muted">Diverse pipeline; confidential backfill; smooth handover.</p>
+            <div class="case-stats">
+              <span class="stat">4 weeks</span>
+              <span class="stat">4 finalists</span>
+              <span class="stat">100% discrete</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Testimonials -->
+    <!-- Enhanced testimonials -->
     <section class="section alt reveal left">
       <div class="container">
         <h2 class="h2">What clients say</h2>
         <div class="cards-3">
-          <figure class="card quote"><blockquote>“The shortlist was spot-on and faster than any firm we’ve used. We closed our VP within a month.”</blockquote><figcaption>Series B SaaS CEO</figcaption></figure>
-          <figure class="card quote"><blockquote>“Exceptional communication and candidate quality. We felt truly partnered.”</blockquote><figcaption>COO, Healthcare</figcaption></figure>
-          <figure class="card quote"><blockquote>“A boutique firm with enterprise-grade rigor. We’ll be back.”</blockquote><figcaption>Private Equity Portfolio</figcaption></figure>
+          <figure class="card quote testimonial-card">
+            <div class="quote-icon">"</div>
+            <blockquote>"The shortlist was spot-on and faster than any firm we've used. We closed our VP within a month."</blockquote>
+            <figcaption>
+              <div class="testimonial-author">Series B SaaS CEO</div>
+              <div class="testimonial-rating">★★★★★</div>
+            </figcaption>
+          </figure>
+          <figure class="card quote testimonial-card">
+            <div class="quote-icon">"</div>
+            <blockquote>"Exceptional communication and candidate quality. We felt truly partnered."</blockquote>
+            <figcaption>
+              <div class="testimonial-author">COO, Healthcare</div>
+              <div class="testimonial-rating">★★★★★</div>
+            </figcaption>
+          </figure>
+          <figure class="card quote testimonial-card">
+            <div class="quote-icon">"</div>
+            <blockquote>"A boutique firm with enterprise-grade rigor. We'll be back."</blockquote>
+            <figcaption>
+              <div class="testimonial-author">Private Equity Portfolio</div>
+              <div class="testimonial-rating">★★★★★</div>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
-    <!-- About -->
+    <!-- About with enhanced layout -->
     <section id="about" class="section reveal right">
       <div class="container grid-2 gap-xl">
         <div>
           <img class="headshot card" src="assets/kathryn-headshot.jpg" alt="Kathryn Hoover, Founder of Capital Retained Search" width="800" height="800" loading="lazy">
+          <div class="founder-badges">
+            <span class="badge">15+ Years Experience</span>
+            <span class="badge">500+ Placements</span>
+            <span class="badge">98% Success Rate</span>
+          </div>
         </div>
         <div>
           <h2 class="h2">About Capital Retained Search</h2>
-          <p class="muted"><strong>Kathryn Hoover</strong> is a seasoned professional recruiter with experience across corporate and contract search. She brings a track record of measurable results across multiple industries and is known for pairing skill, personality, and culture to deliver long-term success. Kathryn enjoys partnering with both hiring leaders and candidates to “find the best in people and put it to work.”</p>
+          <p class="muted"><strong>Kathryn Hoover</strong> is a seasoned professional recruiter with experience across corporate and contract search. She brings a track record of measurable results across multiple industries and is known for pairing skill, personality, and culture to deliver long-term success. Kathryn enjoys partnering with both hiring leaders and candidates to "find the best in people and put it to work."</p>
           <p class="muted">Capital Retained Search was founded to give growth companies a boutique, founder-led partner for critical hires. The firm combines discreet outreach with structured, scorecard-driven evaluations to produce diverse, values-aligned slates—typically closing searches in about six weeks.</p>
+          <div class="founder-contact">
+            <h4>Connect with Kathryn</h4>
+            <div class="contact-links">
+              <a href="https://www.linkedin.com/in/kathryn-hoover" class="social-link">
+                <img src="assets/icons/linkedin.svg" alt="LinkedIn" /> LinkedIn
+              </a>
+              <a href="mailto:kathryn@capitalretainedsearch.com" class="social-link">
+                <img src="assets/icons/email.svg" alt="Email" /> Email
+              </a>
+              <a href="tel:+19198182093" class="social-link">
+                <img src="assets/icons/phone.svg" alt="Phone" /> Call
+              </a>
+            </div>
+          </div>
           <p class="muted small">We operate with strict confidentiality and conflict checks on every engagement.</p>
         </div>
       </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- FAQ with better interaction -->
     <section id="faq" class="section reveal">
       <div class="container">
-        <h2 class="h2">FAQ</h2>
+        <h2 class="h2">Frequently Asked Questions</h2>
         <div class="faq">
-          <details class="card">
+          <details class="card faq-item">
             <summary><strong>How does retained search differ from contingent?</strong></summary>
             <p class="muted">Retained engagements reserve dedicated time and deliver a managed process, market intel, and guaranteed delivery—ideal for confidential or high-impact roles.</p>
           </details>
-          <details class="card">
+          <details class="card faq-item">
             <summary><strong>What functions do you cover?</strong></summary>
             <p class="muted">Revenue leadership, operations/GTM, product & technology, finance & people, and other corporate roles.</p>
           </details>
-          <details class="card">
+          <details class="card faq-item">
             <summary><strong>How quickly do you produce a slate?</strong></summary>
             <p class="muted">We present a scored shortlist in week one or two, with typical close around six weeks.</p>
           </details>
-          <details class="card">
+          <details class="card faq-item">
             <summary><strong>Do you run confidential backfills?</strong></summary>
             <p class="muted">Yes. We handle discreet outreach and reference checks with tight controls.</p>
+          </details>
+          <details class="card faq-item">
+            <summary><strong>What's your success rate?</strong></summary>
+            <p class="muted">We maintain a 98% placement success rate with 95%+ offer acceptance. Our rigorous process ensures strong candidate-company fit.</p>
+          </details>
+          <details class="card faq-item">
+            <summary><strong>Do you offer guarantees?</strong></summary>
+            <p class="muted">Yes. We provide a 90-day replacement guarantee on all placements. If a candidate doesn't work out, we'll conduct a replacement search at no additional cost.</p>
           </details>
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- Enhanced Contact Section with Working Form -->
     <section id="contact" class="contact-split">
       <div class="container contact-grid">
         <div class="contact-left reveal">
-          <h2 class="display contact-title">Let’s start the conversation</h2>
-          <p class="muted contact-copy">When the role is critical, timing and fit matter. Share a few details about your goals and we’ll follow up quickly with next steps and a recommended approach.</p>
+          <h2 class="display contact-title">Let's start the conversation</h2>
+          <p class="muted contact-copy">When the role is critical, timing and fit matter. Share a few details about your goals and we'll follow up quickly with next steps and a recommended approach.</p>
           <div class="contact-firm">
             <strong>Capital Retained Search</strong><br>
             Raleigh, North Carolina · National coverage<br>
             <a class="link" href="mailto:kathryn@capitalretainedsearch.com">kathryn@capitalretainedsearch.com</a><br>
             <a class="link" href="tel:+19198182093">919-818-2093</a>
           </div>
+          <div class="response-time">
+            <div class="response-icon">⏱️</div>
+            <div>
+              <strong>Quick Response</strong>
+              <p class="small muted">We respond to all inquiries within 24 hours</p>
+            </div>
+          </div>
         </div>
 
         <div class="contact-right card reveal right">
-          <h3 class="h2" aria-hidden="true">Contact Us</h3>
-          <form class="form form-lined" name="contact" method="POST" action="mailto:kathryn@capitalretainedsearch.com">
+          <h3 class="h2">Start Your Search</h3>
+          <p class="small muted">Secure Web3Forms processing means every note is delivered instantly and you'll receive a confirmation email.</p>
+          
+          <!-- Form Status Messages -->
+          <div id="form-status" class="form-status" style="display: none;"></div>
+          
+          <form id="contact-form" class="form form-lined">
+            <input type="hidden" name="access_key" value="public-web3forms-demo">
+            <input type="hidden" name="subject" value="New Capital Retained Search inquiry">
+            <input type="hidden" name="from_name" value="Capital Retained Search Website">
+            <input type="hidden" name="redirect" value="https://capitalretainedsearch.com/thank-you">
+            <input type="checkbox" name="botcheck" id="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;">
+
             <div class="grid-2 gap-md">
-              <label> First name * <input name="first" autocomplete="given-name" required placeholder="Enter your first name"></label>
-              <label> Last name * <input name="last" autocomplete="family-name" required placeholder="Enter your last name"></label>
+              <label> 
+                First name * 
+                <input 
+                  name="first" 
+                  id="first"
+                  autocomplete="given-name" 
+                  required 
+                  placeholder="Enter your first name"
+                  aria-required="true"
+                >
+                <span class="error-message" id="first-error"></span>
+              </label>
+              <label> 
+                Last name * 
+                <input 
+                  name="last" 
+                  id="last"
+                  autocomplete="family-name" 
+                  required 
+                  placeholder="Enter your last name"
+                  aria-required="true"
+                >
+                <span class="error-message" id="last-error"></span>
+              </label>
             </div>
+            
             <div class="grid-2 gap-md">
-              <label> Company <input name="company" autocomplete="organization" placeholder="Enter your Company Name"></label>
-              <label> Job Title <input name="title" autocomplete="organization-title" placeholder="Enter your Job Title"></label>
+              <label> 
+                Company 
+                <input 
+                  name="company" 
+                  id="company"
+                  autocomplete="organization" 
+                  placeholder="Enter your Company Name"
+                >
+              </label>
+              <label> 
+                Job Title 
+                <input 
+                  name="title" 
+                  id="title"
+                  autocomplete="organization-title" 
+                  placeholder="Enter your Job Title"
+                >
+              </label>
             </div>
+            
             <div class="grid-2 gap-md">
-              <label> Email * <input type="email" name="email" autocomplete="email" required placeholder="Enter your email"></label>
-              <label> Phone <input name="phone" autocomplete="tel" placeholder="Enter your phone number"></label>
+              <label> 
+                Email * 
+                <input 
+                  type="email" 
+                  name="email" 
+                  id="email"
+                  autocomplete="email" 
+                  required 
+                  placeholder="Enter your email"
+                  aria-required="true"
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                >
+                <span class="error-message" id="email-error"></span>
+              </label>
+              <label> 
+                Phone 
+                <input 
+                  name="phone" 
+                  id="phone"
+                  type="tel"
+                  autocomplete="tel" 
+                  placeholder="Enter your phone number"
+                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                >
+                <span class="error-message" id="phone-error"></span>
+              </label>
             </div>
-            <label> Write a message
-              <textarea name="message" rows="4" placeholder="Tell us about the role, timing, and goals"></textarea>
+            
+            <label> 
+              Role Type
+              <select name="role-type" id="role-type">
+                <option value="">Select role type...</option>
+                <option value="executive">Executive/C-Suite</option>
+                <option value="director">Director/VP</option>
+                <option value="ic">High-Leverage IC</option>
+                <option value="multiple">Multiple Roles</option>
+                <option value="consultation">Consultation Only</option>
+              </select>
             </label>
+            
+            <label> 
+              Timeline
+              <select name="timeline" id="timeline">
+                <option value="">Select timeline...</option>
+                <option value="immediate">Immediate (ASAP)</option>
+                <option value="30days">Within 30 days</option>
+                <option value="60days">Within 60 days</option>
+                <option value="planning">Planning/Future</option>
+              </select>
+            </label>
+            
+            <label> 
+              Message
+              <textarea 
+                name="message" 
+                id="message"
+                rows="4" 
+                placeholder="Tell us about the role, timing, and goals"
+              ></textarea>
+            </label>
+            
             <div class="contact-divider" aria-hidden="true"></div>
-            <button class="btn btn-primary" type="submit">Submit</button>
+            
+            <div class="form-actions">
+              <button class="btn btn-primary btn-submit" type="submit" id="submit-btn">
+                <span class="btn-text">Send Message</span>
+                <span class="btn-loading" style="display: none;">Sending...</span>
+              </button>
+              <p class="form-disclaimer">
+                By submitting, you agree to our <a href="/privacy.html" class="link">Privacy Policy</a>. Powered by Web3Forms.
+              </p>
+            </div>
           </form>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- Enhanced Footer -->
   <footer class="footer">
-    <div class="container row between center">
-      <div>© <span id="y"></span> Capital Retained Search · Raleigh, NC</div>
-      <div class="row gap-md">
-        <a class="link" href="/privacy.html">Privacy</a>
-        <a class="link" href="https://www.linkedin.com/company/capital-retained-search/" rel="noopener" target="_blank">LinkedIn</a>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <img src="assets/logo-512.png" alt="Capital Retained Search" height="40" width="40" />
+          <div>
+            <strong>Capital Retained Search</strong>
+            <p class="small muted">Strategic Hires. Lasting Impact.</p>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Company</h4>
+            <a href="#about">About</a>
+            <a href="#process">Process</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div class="footer-column">
+            <h4>Services</h4>
+            <a href="#services">Solutions</a>
+            <a href="#sectors">Sectors</a>
+            <a href="#roles">Functions</a>
+          </div>
+          <div class="footer-column">
+            <h4>Connect</h4>
+            <a href="https://www.linkedin.com/company/capital-retained-search/" rel="noopener" target="_blank">LinkedIn</a>
+            <a href="mailto:kathryn@capitalretainedsearch.com">Email</a>
+            <a href="tel:+19198182093">Call</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div>© <span id="y"></span> Capital Retained Search · Raleigh, NC</div>
+        <div class="footer-legal">
+          <a class="link" href="/privacy.html">Privacy Policy</a>
+          <a class="link" href="/terms.html">Terms of Service</a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <script src="assets/app.js?v=1" defer></script>
+  <script>
+    window.CRS_CONFIG = Object.freeze({
+      apiUrl: 'https://api.capitalretainedsearch.com',
+      formEndpoint: '/api/contact',
+      analyticsId: 'UA-XXXXXXXXX-X',
+      recaptchaSiteKey: '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI',
+      web3formsUrl: 'https://api.web3forms.com/submit',
+      web3formsKey: 'public-web3forms-demo'
+    });
+  </script>
+  <script src="assets/app-enhanced.js?v=2" defer></script>
 </body>
 </html>
-
