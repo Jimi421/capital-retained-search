@@ -112,6 +112,16 @@ body{
 .values{display:grid;gap:22px}
 .faq{display:grid;gap:14px}
 @media(min-width:980px){.sectors{grid-template-columns:repeat(3,1fr)}.values{grid-template-columns:repeat(5,1fr)}}
+.sector.card p{
+  max-height:0;
+  opacity:0;
+  overflow:hidden;
+  transition:max-height .35s ease,opacity .25s ease;
+}
+.sector.card:hover p,.sector.card:focus-within p{
+  max-height:220px;
+  opacity:1;
+}
 details summary{cursor:pointer;outline:none;font-weight:700}
 details[open]{border-color:#d3e6d6}
 
