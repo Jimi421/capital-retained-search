@@ -4,13 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
   if (y) y.textContent = new Date().getFullYear();
 });
 
-// Reveal on scroll + stagger + count-up (CSP safe)
+// Reveal on scroll + stagger + count-up (CSP-safe)
 (() => {
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const targets = [...document.querySelectorAll('.reveal, [data-count], [data-stagger]')];
+
   if (!('IntersectionObserver' in window) || !targets.length || prefersReduced) {
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('inview'));
-    document.querySelectorAll('[data-count]').forEach(node => node.textContent = node.getAttribute('data-count') + (node.getAttribute('data-suffix') || ''));
+    document.querySelectorAll('[data-count]').forEach(node => {
+      node.textContent = node.getAttribute('data-count') + (node.getAttribute('data-suffix') || '');
+    });
     return;
   }
 
@@ -54,7 +57,7 @@ function countUp(node){
   requestAnimationFrame(step);
 }
 
-// Header shadow
+// Header shadow on scroll
 (() => {
   const hdr = document.querySelector('.topbar');
   if (!hdr) return;

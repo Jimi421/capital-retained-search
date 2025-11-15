@@ -8,26 +8,13 @@
   <meta name="theme-color" content="#409034" />
   <link rel="canonical" href="https://capitalretainedsearch.com/">
 
-  <!-- PWA / Icons -->
-  <link rel="manifest" href="/manifest.webmanifest">
-  <link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
-  <link rel="icon" href="/assets/favicon-48.png" sizes="48x48">
-  <link rel="apple-touch-icon" href="/assets/apple-icon-180.png">
-  <meta property="og:image" content="/assets/og-1200x630.png" />
+  <!-- Preload key images (safe even if mobile/webp variants are missing) -->
+  <link rel="preload" href="assets/IMG_5153.jpeg" as="image">
+  <link rel="preload" href="assets/IMG_6535.jpeg" as="image">
 
-  <!-- Preload hero images (sunrise) -->
-  <link rel="preload" href="/assets/IMG_5153.jpeg" as="image">
-  <link rel="preload" href="/assets/IMG_5153.webp" as="image" type="image/webp" importance="low">
-  <link rel="preload" href="/assets/IMG_5153-mobile.jpeg" as="image" media="(max-width: 640px)">
-  <link rel="preload" href="/assets/IMG_5153-mobile.webp" as="image" type="image/webp" media="(max-width: 640px)" importance="low">
-
-  <!-- Preload secondary hero (rainbow) -->
-  <link rel="preload" href="/assets/IMG_6535.jpeg" as="image">
-  <link rel="preload" href="/assets/IMG_6535-mobile.jpeg" as="image" media="(max-width: 640px)">
-
-  <!-- CSS -->
-  <link rel="preload" href="/assets/app.css" as="style">
-  <link rel="stylesheet" href="/assets/app.css">
+  <!-- CSS (preload + actual stylesheet) -->
+  <link rel="preload" href="assets/app.css" as="style">
+  <link rel="stylesheet" href="assets/app.css?v=1">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -35,7 +22,7 @@
   <header class="topbar">
     <div class="container row between center">
       <a class="brand row center" href="/">
-        <img class="logo" src="/assets/logo-512.png" alt="Capital Retained Search logo" height="40" width="40">
+        <img class="logo" src="assets/logo-512.png" alt="Capital Retained Search logo" height="40" width="40" />
         <span class="brand-name">Capital Retained Search</span>
       </a>
       <nav class="nav" aria-label="Primary">
@@ -50,11 +37,11 @@
   </header>
 
   <main id="main">
-    <!-- HERO: Sunrise (top) -->
+    <!-- HERO: Sunrise -->
     <section class="hero">
       <div class="container grid-2 gap-xl">
         <div class="reveal">
-          <h1 class="display">Strategic Hires. <br> <span class="accent">Lasting Impact.</span></h1>
+          <h1 class="display">Strategic Hires. <br><span class="accent">Lasting Impact.</span></h1>
           <p class="lead">Boutique retained search for growth companies. Proven leaders across revenue, operations, product, and corporate—time-boxed, discreet, and rigorous.</p>
           <div class="row wrap gap-md">
             <a class="btn btn-primary" href="#contact">Schedule Intro (15 min)</a>
@@ -111,7 +98,7 @@
       </div>
     </section>
 
-    <!-- Why Us / Values -->
+    <!-- Values -->
     <section id="values" class="section alt reveal">
       <div class="container">
         <h2 class="h2">Why Capital Retained Search</h2>
@@ -191,14 +178,12 @@
       </div>
     </section>
 
-    <!-- SECONDARY HERO: Rainbow (mid-page) -->
+    <!-- SECONDARY HERO: Rainbow -->
     <section class="image-hero reveal" aria-label="Atlantic beach rainbow">
       <div class="image-veil"></div>
       <div class="container hero-caption">
         <h2 class="h2">Based in Raleigh. National reach.</h2>
-        <p class="muted on-dark">
-          Discreet, founder-led search with the rigor of a large firm—delivered with boutique focus.
-        </p>
+        <p class="muted on-dark">Discreet, founder-led search with the rigor of a large firm—delivered with boutique focus.</p>
         <a class="btn btn-primary" href="#contact">Start a confidential search</a>
       </div>
     </section>
@@ -231,7 +216,7 @@
     <section id="about" class="section reveal right">
       <div class="container grid-2 gap-xl">
         <div>
-          <img class="headshot card" src="/assets/kathryn-headshot.jpg" alt="Kathryn Hoover, Founder of Capital Retained Search" width="800" height="800" loading="lazy">
+          <img class="headshot card" src="assets/kathryn-headshot.jpg" alt="Kathryn Hoover, Founder of Capital Retained Search" width="800" height="800" loading="lazy">
         </div>
         <div>
           <h2 class="h2">About Capital Retained Search</h2>
@@ -317,7 +302,7 @@
     </div>
   </footer>
 
-  <script src="/assets/app.js" defer></script>
+  <script src="assets/app.js?v=1" defer></script>
 </body>
 </html>
 
