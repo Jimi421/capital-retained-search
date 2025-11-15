@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>Briefcase icon</title>
+  <g fill="none" stroke="#2F5F2B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="10" y="22" width="44" height="28" rx="6" fill="#EAF6EA" />
+    <rect x="24" y="14" width="16" height="8" rx="2" fill="#B4DDB4" />
+    <path d="M32 22v10" />
+    <path d="M10 34h44" />
+    <circle cx="32" cy="34" r="2" fill="#2F5F2B" stroke="none" />
+  </g>
+</svg>
