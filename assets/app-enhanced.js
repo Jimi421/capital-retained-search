@@ -8,13 +8,37 @@ const loadExistingScripts = () => {
 };
 
 // Configuration
-const CONFIG = {
+const DEFAULT_CONFIG = {
   API_URL: 'https://api.capitalretainedsearch.com',
-  API_TOKEN: process.env.CRS_API_TOKEN || 'bd0c454e-33c0-4577-80e1-d4aeda7e395d', // Replace with actual token
+  API_TOKEN: null,
   FORM_ENDPOINT: '/api/contact',
   ANALYTICS_ID: 'UA-XXXXXXXXX-X',
-  RECAPTCHA_SITE_KEY: '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI' // Replace with actual key
+  RECAPTCHA_SITE_KEY: '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI',
+  WEB3FORMS_URL: 'https://api.web3forms.com/submit',
+  WEB3FORMS_ACCESS_KEY: null
 };
+
+const runtimeConfig = (typeof window !== 'undefined' && window.CRS_CONFIG && typeof window.CRS_CONFIG === 'object')
+  ? window.CRS_CONFIG
+  : {};
+
+if (!runtimeConfig || Object.keys(runtimeConfig).length === 0) {
+  console.warn('CRS_CONFIG is not defined on window. Falling back to baked-in defaults.');
+}
+
+const CONFIG = {
+  API_URL: runtimeConfig.apiUrl ?? runtimeConfig.API_URL ?? DEFAULT_CONFIG.API_URL,
+  API_TOKEN: runtimeConfig.apiToken ?? runtimeConfig.API_TOKEN ?? DEFAULT_CONFIG.API_TOKEN,
+  FORM_ENDPOINT: runtimeConfig.formEndpoint ?? runtimeConfig.FORM_ENDPOINT ?? DEFAULT_CONFIG.FORM_ENDPOINT,
+  ANALYTICS_ID: runtimeConfig.analyticsId ?? runtimeConfig.ANALYTICS_ID ?? DEFAULT_CONFIG.ANALYTICS_ID,
+  RECAPTCHA_SITE_KEY: runtimeConfig.recaptchaSiteKey ?? runtimeConfig.RECAPTCHA_SITE_KEY ?? DEFAULT_CONFIG.RECAPTCHA_SITE_KEY,
+  WEB3FORMS_URL: runtimeConfig.web3formsUrl ?? runtimeConfig.WEB3FORMS_URL ?? DEFAULT_CONFIG.WEB3FORMS_URL,
+  WEB3FORMS_ACCESS_KEY: runtimeConfig.web3formsAccessKey ?? runtimeConfig.WEB3FORMS_ACCESS_KEY ?? DEFAULT_CONFIG.WEB3FORMS_ACCESS_KEY
+};
+
+if (!CONFIG.API_URL && !CONFIG.WEB3FORMS_URL) {
+  console.warn('No API or Web3Forms endpoint configured. Contact form will fall back to Netlify handling.');
+}
 
 // ===== FORM HANDLING WITH API =====
 class ContactForm {
@@ -155,7 +179,7 @@ class ContactForm {
   
   async sendToAPI(data) {
     // Option 1: Send to your custom API
-    if (CONFIG.API_URL && CONFIG.API_TOKEN) {
+    if (CONFIG.API_URL && CONFIG.API_TOKEN && CONFIG.FORM_ENDPOINT) {
       return await fetch(`${CONFIG.API_URL}${CONFIG.FORM_ENDPOINT}`, {
         method: 'POST',
         headers: {
@@ -165,8 +189,25 @@ class ContactForm {
         body: JSON.stringify(data)
       });
     }
-    
-    // Option 2: Use Netlify Forms (if deployed on Netlify)
+
+    // Option 2: Web3Forms fallback
+    if (CONFIG.WEB3FORMS_URL && CONFIG.WEB3FORMS_ACCESS_KEY) {
+      const payload = {
+        ...data,
+        access_key: CONFIG.WEB3FORMS_ACCESS_KEY
+      };
+
+      return await fetch(CONFIG.WEB3FORMS_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+    }
+
+    // Option 3: Use Netlify Forms (if deployed on Netlify)
     const formData = new FormData(this.form);
     return await fetch('/', {
       method: 'POST',
