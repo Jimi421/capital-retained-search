@@ -15,10 +15,17 @@
   <link rel="apple-touch-icon" href="/assets/apple-icon-180.png">
   <meta property="og:image" content="/assets/og-1200x630.png" />
 
-  <!-- Preload the hero image for faster paint -->
+  <!-- Preload hero images (sunrise) -->
   <link rel="preload" href="/assets/IMG_5153.jpeg" as="image">
+  <link rel="preload" href="/assets/IMG_5153.webp" as="image" type="image/webp" importance="low">
+  <link rel="preload" href="/assets/IMG_5153-mobile.jpeg" as="image" media="(max-width: 640px)">
+  <link rel="preload" href="/assets/IMG_5153-mobile.webp" as="image" type="image/webp" media="(max-width: 640px)" importance="low">
 
-  <!-- Self-hosted CSS -->
+  <!-- Preload secondary hero (rainbow) -->
+  <link rel="preload" href="/assets/IMG_6535.jpeg" as="image">
+  <link rel="preload" href="/assets/IMG_6535-mobile.jpeg" as="image" media="(max-width: 640px)">
+
+  <!-- CSS -->
   <link rel="preload" href="/assets/app.css" as="style">
   <link rel="stylesheet" href="/assets/app.css">
 </head>
@@ -43,7 +50,7 @@
   </header>
 
   <main id="main">
-    <!-- Hero with mobile-friendly beach background -->
+    <!-- HERO: Sunrise (top) -->
     <section class="hero">
       <div class="container grid-2 gap-xl">
         <div class="reveal">
@@ -118,18 +125,18 @@
       </div>
     </section>
 
-    <!-- Client Sectors -->
+    <!-- Sectors -->
     <section id="sectors" class="section reveal">
       <div class="container">
         <h2 class="h2">Client sectors</h2>
         <p class="muted">We support growth companies and investment-backed operators across these markets.</p>
         <div class="sectors">
-          <div class="sector card" tabindex="0"><h3 class="h3">Software & SaaS</h3><p class="muted">B2B platforms, data/AI, vertical SaaS.</p></div>
-          <div class="sector card" tabindex="0"><h3 class="h3">Private Equity Portfolio</h3><p class="muted">Add-ons, roll-ups, professionalization plays.</p></div>
-          <div class="sector card" tabindex="0"><h3 class="h3">Healthcare</h3><p class="muted">Provider services, HCIT, payor/plan adjacencies.</p></div>
-          <div class="sector card" tabindex="0"><h3 class="h3">Industrial & Services</h3><p class="muted">Manufacturing, distribution, field services.</p></div>
-          <div class="sector card" tabindex="0"><h3 class="h3">Financial & Corporate</h3><p class="muted">Accounting/finance, HR, legal, operations.</p></div>
-          <div class="sector card" tabindex="0"><h3 class="h3">Mission-Driven</h3><p class="muted">Nonprofit and education leadership.</p></div>
+          <div class="sector card"><h3 class="h3">Software & SaaS</h3><p class="muted">B2B platforms, data/AI, vertical SaaS.</p></div>
+          <div class="sector card"><h3 class="h3">Private Equity Portfolio</h3><p class="muted">Add-ons, roll-ups, professionalization plays.</p></div>
+          <div class="sector card"><h3 class="h3">Healthcare</h3><p class="muted">Provider services, HCIT, payor/plan adjacencies.</p></div>
+          <div class="sector card"><h3 class="h3">Industrial & Services</h3><p class="muted">Manufacturing, distribution, field services.</p></div>
+          <div class="sector card"><h3 class="h3">Financial & Corporate</h3><p class="muted">Accounting/finance, HR, legal, operations.</p></div>
+          <div class="sector card"><h3 class="h3">Mission-Driven</h3><p class="muted">Nonprofit and education leadership.</p></div>
         </div>
       </div>
     </section>
@@ -139,7 +146,6 @@
       <div class="container">
         <h2 class="h2">Functions we recruit</h2>
         <p class="muted">Core strengths include revenue, operations, product, and corporate services.</p>
-
         <div class="role-grid" data-stagger="80">
           <article class="role-card" tabindex="0" aria-label="Executive and Director roles">
             <h3 class="role-head">Executive & Director</h3>
@@ -151,7 +157,6 @@
               </ul>
             </div>
           </article>
-
           <article class="role-card" tabindex="0" aria-label="High-leverage individual contributors">
             <h3 class="role-head">High-Leverage IC</h3>
             <div class="role-body">
@@ -162,7 +167,6 @@
               </ul>
             </div>
           </article>
-
           <article class="role-card" tabindex="0" aria-label="Product and technology leadership">
             <h3 class="role-head">Product & Technology</h3>
             <div class="role-body">
@@ -173,7 +177,6 @@
               </ul>
             </div>
           </article>
-
           <article class="role-card" tabindex="0" aria-label="Finance and people leadership">
             <h3 class="role-head">Finance & People</h3>
             <div class="role-body">
@@ -188,7 +191,19 @@
       </div>
     </section>
 
-    <!-- Mini case strip -->
+    <!-- SECONDARY HERO: Rainbow (mid-page) -->
+    <section class="image-hero reveal" aria-label="Atlantic beach rainbow">
+      <div class="image-veil"></div>
+      <div class="container hero-caption">
+        <h2 class="h2">Based in Raleigh. National reach.</h2>
+        <p class="muted on-dark">
+          Discreet, founder-led search with the rigor of a large firm—delivered with boutique focus.
+        </p>
+        <a class="btn btn-primary" href="#contact">Start a confidential search</a>
+      </div>
+    </section>
+
+    <!-- Mini cases -->
     <section class="section reveal">
       <div class="container">
         <h2 class="h2">Recent work (confidential)</h2>
@@ -220,17 +235,8 @@
         </div>
         <div>
           <h2 class="h2">About Capital Retained Search</h2>
-          <p class="muted">
-            <strong>Kathryn Hoover</strong> is a seasoned professional recruiter with experience across corporate and contract search.
-            She brings a track record of measurable results across multiple industries and is known for pairing
-            skill, personality, and culture to deliver long-term success. Kathryn enjoys partnering with both
-            hiring leaders and candidates to “find the best in people and put it to work.”
-          </p>
-          <p class="muted">
-            Capital Retained Search was founded to give growth companies a boutique, founder-led partner for
-            critical hires. The firm combines discreet outreach with structured, scorecard-driven evaluations
-            to produce diverse, values-aligned slates—typically closing searches in about six weeks.
-          </p>
+          <p class="muted"><strong>Kathryn Hoover</strong> is a seasoned professional recruiter with experience across corporate and contract search. She brings a track record of measurable results across multiple industries and is known for pairing skill, personality, and culture to deliver long-term success. Kathryn enjoys partnering with both hiring leaders and candidates to “find the best in people and put it to work.”</p>
+          <p class="muted">Capital Retained Search was founded to give growth companies a boutique, founder-led partner for critical hires. The firm combines discreet outreach with structured, scorecard-driven evaluations to produce diverse, values-aligned slates—typically closing searches in about six weeks.</p>
           <p class="muted small">We operate with strict confidentiality and conflict checks on every engagement.</p>
         </div>
       </div>
@@ -261,15 +267,12 @@
       </div>
     </section>
 
-    <!-- Contact (dark split) -->
+    <!-- Contact -->
     <section id="contact" class="contact-split">
       <div class="container contact-grid">
         <div class="contact-left reveal">
           <h2 class="display contact-title">Let’s start the conversation</h2>
-          <p class="muted contact-copy">
-            When the role is critical, timing and fit matter. Share a few details about your
-            goals and we’ll follow up quickly with next steps and a recommended approach.
-          </p>
+          <p class="muted contact-copy">When the role is critical, timing and fit matter. Share a few details about your goals and we’ll follow up quickly with next steps and a recommended approach.</p>
           <div class="contact-firm">
             <strong>Capital Retained Search</strong><br>
             Raleigh, North Carolina · National coverage<br>
