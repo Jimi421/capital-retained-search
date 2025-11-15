@@ -15,7 +15,7 @@ const DEFAULT_CONFIG = {
   ANALYTICS_ID: 'UA-XXXXXXXXX-X',
   RECAPTCHA_SITE_KEY: '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI',
   WEB3FORMS_URL: 'https://api.web3forms.com/submit',
-  WEB3FORMS_ACCESS_KEY: null
+  WEB3FORMS_KEY: null
 };
 
 const runtimeConfig = (typeof window !== 'undefined' && window.CRS_CONFIG && typeof window.CRS_CONFIG === 'object')
@@ -33,7 +33,11 @@ const CONFIG = {
   ANALYTICS_ID: runtimeConfig.analyticsId ?? runtimeConfig.ANALYTICS_ID ?? DEFAULT_CONFIG.ANALYTICS_ID,
   RECAPTCHA_SITE_KEY: runtimeConfig.recaptchaSiteKey ?? runtimeConfig.RECAPTCHA_SITE_KEY ?? DEFAULT_CONFIG.RECAPTCHA_SITE_KEY,
   WEB3FORMS_URL: runtimeConfig.web3formsUrl ?? runtimeConfig.WEB3FORMS_URL ?? DEFAULT_CONFIG.WEB3FORMS_URL,
-  WEB3FORMS_ACCESS_KEY: runtimeConfig.web3formsAccessKey ?? runtimeConfig.WEB3FORMS_ACCESS_KEY ?? DEFAULT_CONFIG.WEB3FORMS_ACCESS_KEY
+  WEB3FORMS_KEY: runtimeConfig.web3formsKey
+    ?? runtimeConfig.WEB3FORMS_KEY
+    ?? runtimeConfig.web3formsAccessKey
+    ?? runtimeConfig.WEB3FORMS_ACCESS_KEY
+    ?? DEFAULT_CONFIG.WEB3FORMS_KEY
 };
 
 if (!CONFIG.API_URL && !CONFIG.WEB3FORMS_URL) {
@@ -161,13 +165,12 @@ class ContactForm {
     data.page = window.location.pathname;
     
     try {
-      // Send to API
-      const response = await this.sendToAPI(data);
-      
-      if (response.ok) {
-        this.handleSuccess();
+      const result = await this.sendToAPI(data);
+
+      if (result.success) {
+        this.handleSuccess(result);
       } else {
-        throw new Error('Failed to submit form');
+        this.handleError(new Error(result.message || 'Failed to submit form'), result);
       }
     } catch (error) {
       console.error('Form submission error:', error);
@@ -176,11 +179,11 @@ class ContactForm {
       this.setLoading(false);
     }
   }
-  
+
   async sendToAPI(data) {
     // Option 1: Send to your custom API
     if (CONFIG.API_URL && CONFIG.API_TOKEN && CONFIG.FORM_ENDPOINT) {
-      return await fetch(`${CONFIG.API_URL}${CONFIG.FORM_ENDPOINT}`, {
+      const response = await fetch(`${CONFIG.API_URL}${CONFIG.FORM_ENDPOINT}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -188,55 +191,85 @@ class ContactForm {
         },
         body: JSON.stringify(data)
       });
-    }
 
-    // Option 2: Web3Forms fallback
-    if (CONFIG.WEB3FORMS_URL && CONFIG.WEB3FORMS_ACCESS_KEY) {
-      const payload = {
-        ...data,
-        access_key: CONFIG.WEB3FORMS_ACCESS_KEY
+      const json = await response.json().catch(() => null);
+      return {
+        success: response.ok,
+        status: response.status,
+        message: json?.message || (response.ok ? 'Message sent successfully.' : 'Failed to submit form.'),
+        data: json
       };
-
-      return await fetch(CONFIG.WEB3FORMS_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      });
     }
 
-    // Option 3: Use Netlify Forms (if deployed on Netlify)
-    const formData = new FormData(this.form);
-    return await fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData).toString()
-    });
+    // Option 2: Web3Forms
+    if (CONFIG.WEB3FORMS_URL && (CONFIG.WEB3FORMS_KEY || this.form?.querySelector('[name="access_key"]'))) {
+      const body = new FormData(this.form);
+
+      const accessKey = CONFIG.WEB3FORMS_KEY || body.get('access_key');
+      if (!accessKey) {
+        return {
+          success: false,
+          status: 400,
+          message: 'Missing Web3Forms access key.'
+        };
+      }
+
+      body.set('access_key', accessKey);
+      body.set('from_name', body.get('from_name') || 'Capital Retained Search Website');
+      if (!body.get('subject')) {
+        body.set('subject', 'New contact request via capitalretainedsearch.com');
+      }
+      body.set('page', window.location.href);
+      body.set('timestamp', new Date().toISOString());
+      body.set('source', 'contact-form');
+      body.set('botcheck', body.get('botcheck') || '');
+
+      const response = await fetch(CONFIG.WEB3FORMS_URL, {
+        method: 'POST',
+        body
+      });
+
+      const json = await response.json().catch(() => null);
+      const success = Boolean(json?.success);
+      return {
+        success,
+        status: json?.status ?? response.status,
+        message: json?.message || (success ? 'Message sent successfully.' : 'Failed to submit form.'),
+        data: json
+      };
+    }
+
+    return {
+      success: false,
+      status: 503,
+      message: 'No form submission endpoint is configured.'
+    };
   }
-  
-  handleSuccess() {
+
+  handleSuccess(result = {}) {
     // Clear form
     this.form.reset();
-    
+
     // Show success message
-    this.showFormStatus('Thank you! We\'ll be in touch within 24 hours.', 'success');
+    const message = result.message || 'Thank you! We\'ll be in touch within 24 hours.';
+    this.showFormStatus(message, 'success');
     this.showNotification('Your message has been sent successfully!', 'success');
-    
+
     // Track conversion
     this.trackEvent('Form', 'Submit', 'Contact');
-    
+
     // Redirect after delay (optional)
     setTimeout(() => {
       window.location.href = '/thank-you';
     }, 3000);
   }
   
-  handleError(error) {
-    this.showFormStatus('Something went wrong. Please try again or email us directly.', 'error');
-    this.showNotification('Failed to send message. Please try again.', 'error');
-    
+  handleError(error, result = {}) {
+    const fallbackMessage = 'Something went wrong. Please try again or email us directly.';
+    const message = result.message || error.message || fallbackMessage;
+    this.showFormStatus(message, 'error');
+    this.showNotification(message, 'error');
+
     // Track error
     this.trackEvent('Form', 'Error', error.message);
   }
