@@ -150,6 +150,12 @@
   margin-right: 12px;
   font-size: 12px;
   flex-shrink: 0;
+  line-height: 0;
+}
+
+.check-icon img {
+  width: 12px;
+  height: 12px;
 }
 
 .bubble-cta {
@@ -377,9 +383,16 @@
 }
 
 .value-icon {
-  font-size: 48px;
   margin-bottom: 16px;
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.value-icon img {
+  width: 48px;
+  height: 48px;
 }
 
 /* ===== SECTOR CARDS ===== */
@@ -405,8 +418,16 @@
 }
 
 .sector-icon {
-  font-size: 32px;
   margin-bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.sector-icon img {
+  width: 32px;
+  height: 32px;
 }
 
 .hover-lift {
@@ -424,8 +445,16 @@
 }
 
 .role-icon {
-  font-size: 32px;
   margin-bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.role-icon img {
+  width: 32px;
+  height: 32px;
 }
 
 .role-card.enhanced:hover {
@@ -495,8 +524,14 @@
 }
 
 .testimonial-rating {
-  color: #f59e0b;
-  font-size: 14px;
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.testimonial-rating img {
+  width: 16px;
+  height: 16px;
 }
 
 /* ===== FOUNDER SECTION ===== */
@@ -696,7 +731,15 @@ select.error {
 }
 
 .response-icon {
-  font-size: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.response-icon img {
+  width: 32px;
+  height: 32px;
 }
 
 /* ===== ENHANCED FAQ ===== */

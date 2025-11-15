@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>Users icon</title>
+  <g fill="none" stroke="#2F5F2B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="40" cy="20" r="10" fill="#EAF6EA" />
+    <circle cx="20" cy="24" r="8" fill="#EAF6EA" />
+    <path d="M8 52c0-9 7-16 16-16" />
+    <path d="M24 52c0-12 8-20 16-20s16 8 16 20" fill="#EAF6EA" />
+  </g>
+</svg>

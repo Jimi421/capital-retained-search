@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>Line chart icon</title>
+  <g fill="none" stroke="#2F5F2B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="10" y="10" width="44" height="36" rx="6" fill="#EAF6EA" />
+    <path d="M16 40l8-10 10 6 12-16 6 8" />
+    <path d="M10 46h44" />
+    <circle cx="24" cy="30" r="3" fill="#B4DDB4" stroke="none" />
+    <circle cx="34" cy="36" r="3" fill="#B4DDB4" stroke="none" />
+    <circle cx="46" cy="20" r="3" fill="#B4DDB4" stroke="none" />
+  </g>
+</svg>
