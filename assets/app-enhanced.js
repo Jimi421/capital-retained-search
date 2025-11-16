@@ -205,7 +205,7 @@ class ContactForm {
     if (CONFIG.WEB3FORMS_URL && (CONFIG.WEB3FORMS_KEY || this.form?.querySelector('[name="access_key"]'))) {
       const body = new FormData(this.form);
 
-      const accessKey = CONFIG.WEB3FORMS_KEY || body.get('access_key');
+      const accessKey = (CONFIG.WEB3FORMS_KEY || body.get('access_key') || '').trim();
       if (!accessKey) {
         return {
           success: false,
