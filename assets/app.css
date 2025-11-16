@@ -107,6 +107,14 @@ details[open]{border-color:#d3e6d6}
 .role-body ul{margin:10px 0 0 18px;padding:0}.role-body li{margin:6px 0;color:var(--ink-2)}
 
 /* ===== SECONDARY HERO: Rainbow ===== */
+.mid-hero{
+  position:relative; isolation:isolate;
+  min-height:48vh; display:flex; align-items:center;
+  background:#000 center/cover no-repeat;
+  background-image:url("/assets/IMG_6358.jpeg");
+  background-position:38% 40%;
+}
+.mid-hero .hero-caption{max-width:680px}
 .image-hero{
   position:relative; isolation:isolate;
   min-height:44vh; display:flex; align-items:center;
@@ -119,8 +127,8 @@ details[open]{border-color:#d3e6d6}
 }
 .hero-caption{ color:#fff; text-shadow:0 2px 16px rgba(0,0,0,.35) }
 .hero-caption .muted.on-dark{ color:#e7eef7; max-width:52ch; margin:8px 0 18px }
-@media (max-width:860px){ .image-hero{ min-height:36vh } }
-@media (max-width:640px){ .image-hero{ background-position:40% 35% } }
+@media (max-width:860px){ .mid-hero{ min-height:40vh } .image-hero{ min-height:36vh } }
+@media (max-width:640px){ .mid-hero{ background-position:46% 35% } .image-hero{ background-position:40% 35% } }
 
 /* Contact (dark split) */
 .contact-split{background:#0f213d;color:#eaf0f7;padding:96px 0}
