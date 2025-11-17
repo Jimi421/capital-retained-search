@@ -226,15 +226,24 @@ class ContactForm {
 
       const response = await fetch(CONFIG.WEB3FORMS_URL, {
         method: 'POST',
+        headers: {
+          'Accept': 'application/json'
+        },
         body
       });
 
-      const json = await response.json().catch(() => null);
-      const success = Boolean(json?.success);
+      const json = await response.json().catch((err) => {
+        console.warn('Web3Forms returned a non-JSON response', err);
+        return null;
+      });
+
+      const success = json?.success ?? response.ok;
       return {
         success,
         status: json?.status ?? response.status,
-        message: json?.message || (success ? 'Message sent successfully.' : 'Failed to submit form.'),
+        message: json?.message || (success
+          ? 'Message sent successfully.'
+          : 'Failed to submit form. Please email kathryn@capitalretainedsearch.com directly.'),
         data: json
       };
     }
