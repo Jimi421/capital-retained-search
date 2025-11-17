@@ -260,7 +260,7 @@ class ContactForm {
 
     // Redirect after delay (optional)
     setTimeout(() => {
-      window.location.href = '/thank-you.html';
+      window.location.href = '/thank-you';
     }, 3000);
   }
   
