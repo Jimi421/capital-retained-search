@@ -4,11 +4,11 @@
     style-src  'self';
     img-src    'self' data:;
     font-src   'self' data:;
-    connect-src 'self' https://api.capitalretainedsearch.com;
+    connect-src 'self' https://api.capitalretainedsearch.com https://api.web3forms.com;
     object-src 'none';
     base-uri 'self';
     frame-ancestors 'none';
-    form-action 'self' https://api.capitalretainedsearch.com;
+    form-action 'self' https://api.capitalretainedsearch.com https://api.web3forms.com;
     upgrade-insecure-requests;
 
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
