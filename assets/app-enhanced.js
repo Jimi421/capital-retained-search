@@ -266,11 +266,6 @@ class ContactForm {
 
     // Track conversion
     this.trackEvent('Form', 'Submit', 'Contact');
-
-    // Redirect after delay (optional)
-    setTimeout(() => {
-      window.location.href = '/thank-you.html';
-    }, 3000);
   }
   
   handleError(error, result = {}) {
