@@ -685,6 +685,12 @@
   display: block;
 }
 
+.input-hint {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: #aab6c8;
+}
+
 input.error,
 textarea.error,
 select.error {

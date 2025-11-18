@@ -65,22 +65,13 @@ class ContactForm {
       field.addEventListener('blur', () => this.validateField(field));
       field.addEventListener('input', () => this.clearError(field));
     });
-    
-    // Phone number formatting
-    const phoneField = document.getElementById('phone');
-    if (phoneField) {
-      phoneField.addEventListener('input', (e) => this.formatPhone(e));
-    }
   }
-  
-  formatPhone(e) {
-    let value = e.target.value.replace(/\D/g, '');
-    if (value.length >= 6) {
-      value = `${value.slice(0, 3)}-${value.slice(3, 6)}-${value.slice(6, 10)}`;
-    } else if (value.length >= 3) {
-      value = `${value.slice(0, 3)}-${value.slice(3)}`;
-    }
-    e.target.value = value;
+
+  normalizePhone(value) {
+    if (!value) return '';
+    const trimmed = value.trim();
+    const digitsOnly = trimmed.replace(/\D/g, '');
+    return trimmed.startsWith('+') ? `+${digitsOnly}` : digitsOnly;
   }
   
   validateField(field) {
@@ -104,13 +95,24 @@ class ContactForm {
         errorMessage = 'Please enter a valid email address';
       }
     }
-    
+
     // Phone validation
     if (field.type === 'tel' && field.value) {
-      const phoneRegex = /^\d{3}-\d{3}-\d{4}$/;
-      if (!phoneRegex.test(field.value)) {
+      const phoneValue = field.value.trim();
+      const digitCount = phoneValue.replace(/\D/g, '').length;
+      const plusCount = (phoneValue.match(/\+/g) || []).length;
+      const allowedCharacters = /^\+?[0-9\s().-]+$/;
+      const hasLeadingPlus = phoneValue.startsWith('+');
+
+      if (
+        !allowedCharacters.test(phoneValue)
+        || digitCount < 7
+        || digitCount > 20
+        || plusCount > 1
+        || (plusCount === 1 && !hasLeadingPlus)
+      ) {
         isValid = false;
-        errorMessage = 'Please enter a valid phone number (xxx-xxx-xxxx)';
+        errorMessage = 'Enter a valid phone number (digits, spaces, dashes, parentheses, optional +country code)';
       }
     }
     
@@ -158,6 +160,10 @@ class ContactForm {
     // Prepare form data
     const formData = new FormData(this.form);
     const data = Object.fromEntries(formData);
+
+    if (data.phone) {
+      data.phone_normalized = this.normalizePhone(data.phone);
+    }
     
     // Add metadata
     data.timestamp = new Date().toISOString();

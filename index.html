@@ -725,14 +725,17 @@
               </label>
               <label> 
                 Phone 
-                <input 
-                  name="phone" 
+                <input
+                  name="phone"
                   id="phone"
                   type="tel"
-                  autocomplete="tel" 
+                  autocomplete="tel"
                   placeholder="Enter your phone number"
-                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                  aria-describedby="phone-hint"
                 >
+                <p class="input-hint" id="phone-hint">
+                  Accepted formats: +44 20 7123 4567, +1 (415) 555-2671, 0412 345 678.
+                </p>
                 <span class="error-message" id="phone-error"></span>
               </label>
             </div>
