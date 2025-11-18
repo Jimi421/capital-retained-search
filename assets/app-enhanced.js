@@ -9,13 +9,12 @@ const loadExistingScripts = () => {
 
 // Configuration
 const DEFAULT_CONFIG = {
-  API_URL: 'https://api.capitalretainedsearch.com',
+  API_URL: null,
   API_TOKEN: null,
-  FORM_ENDPOINT: '/api/contact',
-  ANALYTICS_ID: 'UA-XXXXXXXXX-X',
-  RECAPTCHA_SITE_KEY: '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI',
-  WEB3FORMS_URL: 'https://api.web3forms.com/submit',
-  WEB3FORMS_KEY: null
+  FORM_ENDPOINT: '/.netlify/functions/web3forms-proxy',
+  ANALYTICS_ID: null,
+  RECAPTCHA_SITE_KEY: null,
+  WEB3FORMS_URL: '/.netlify/functions/web3forms-proxy'
 };
 
 const runtimeConfig = (typeof window !== 'undefined' && window.CRS_CONFIG && typeof window.CRS_CONFIG === 'object')
@@ -32,12 +31,10 @@ const CONFIG = {
   FORM_ENDPOINT: runtimeConfig.formEndpoint ?? runtimeConfig.FORM_ENDPOINT ?? DEFAULT_CONFIG.FORM_ENDPOINT,
   ANALYTICS_ID: runtimeConfig.analyticsId ?? runtimeConfig.ANALYTICS_ID ?? DEFAULT_CONFIG.ANALYTICS_ID,
   RECAPTCHA_SITE_KEY: runtimeConfig.recaptchaSiteKey ?? runtimeConfig.RECAPTCHA_SITE_KEY ?? DEFAULT_CONFIG.RECAPTCHA_SITE_KEY,
-  WEB3FORMS_URL: runtimeConfig.web3formsUrl ?? runtimeConfig.WEB3FORMS_URL ?? DEFAULT_CONFIG.WEB3FORMS_URL,
-  WEB3FORMS_KEY: runtimeConfig.web3formsKey
-    ?? runtimeConfig.WEB3FORMS_KEY
-    ?? runtimeConfig.web3formsAccessKey
-    ?? runtimeConfig.WEB3FORMS_ACCESS_KEY
-    ?? DEFAULT_CONFIG.WEB3FORMS_KEY
+  WEB3FORMS_URL: runtimeConfig.web3formsUrl
+    ?? runtimeConfig.WEB3FORMS_URL
+    ?? runtimeConfig.formEndpoint
+    ?? DEFAULT_CONFIG.WEB3FORMS_URL,
 };
 
 if (!CONFIG.API_URL && !CONFIG.WEB3FORMS_URL) {
@@ -201,39 +198,29 @@ class ContactForm {
       };
     }
 
-    // Option 2: Web3Forms
-    if (CONFIG.WEB3FORMS_URL && (CONFIG.WEB3FORMS_KEY || this.form?.querySelector('[name="access_key"]'))) {
-      const body = new FormData(this.form);
+    // Option 2: Web3Forms via proxy
+    if (CONFIG.WEB3FORMS_URL) {
+      const botcheckField = this.form?.querySelector('[name="botcheck"]');
+      const botcheckValue = botcheckField?.checked ? botcheckField.value : '';
 
-      const accessKey = (body.get('access_key') || CONFIG.WEB3FORMS_KEY || '').trim();
-      if (!accessKey) {
-        return {
-          success: false,
-          status: 400,
-          message: 'Missing Web3Forms access key.'
-        };
-      }
-
-      body.set('access_key', accessKey);
-      body.set('from_name', body.get('from_name') || 'Capital Retained Search Website');
-      if (!body.get('subject')) {
-        body.set('subject', 'New contact request via capitalretainedsearch.com');
-      }
-      body.set('page', window.location.href);
-      body.set('timestamp', new Date().toISOString());
-      body.set('source', 'contact-form');
-      body.set('botcheck', body.get('botcheck') || '');
+      const payload = {
+        ...data,
+        page: window.location.href,
+        source: 'contact-form',
+        botcheck: botcheckValue
+      };
 
       const response = await fetch(CONFIG.WEB3FORMS_URL, {
         method: 'POST',
         headers: {
+          'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        body
+        body: JSON.stringify(payload)
       });
 
       const json = await response.json().catch((err) => {
-        console.warn('Web3Forms returned a non-JSON response', err);
+        console.warn('Web3Forms proxy returned a non-JSON response', err);
         return null;
       });
 

@@ -654,7 +654,6 @@
           <div id="form-status" class="form-status" style="display: none;"></div>
           
           <form id="contact-form" class="form form-lined">
-            <input type="hidden" name="access_key" value="bd0c454e-33c0-4577-80e1-d4aeda7e395d">
             <input type="hidden" name="subject" value="New Capital Retained Search inquiry">
             <input type="hidden" name="from_name" value="Capital Retained Search Website">
             <input type="hidden" name="redirect" value="/thank-you.html">
@@ -832,15 +831,9 @@
   </footer>
 
   <script>
-    window.CRS_CONFIG = Object.freeze({
-      apiUrl: 'https://api.capitalretainedsearch.com',
-      formEndpoint: '/api/contact',
-      analyticsId: 'UA-XXXXXXXXX-X',
-      recaptchaSiteKey: '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI',
-      web3formsUrl: 'https://api.web3forms.com/submit',
-      web3formsKey: 'bd0c454e-33c0-4577-80e1-d4aeda7e395d'
-    });
+    window.CRS_CONFIG = window.CRS_CONFIG || {};
   </script>
+  <script src="/.netlify/functions/public-config" defer></script>
   <script src="assets/app-enhanced.js?v=2" defer></script>
 </body>
 </html>
